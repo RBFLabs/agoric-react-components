@@ -1,2 +1,2 @@
 // TODO investigate wallet state possible types
-export type WalletState = "idle" | "locating" | "connecting" |"approving" | "bridged" | undefined
+export type AgoricWalletState = "idle" | "locating" | "connecting" |"approving" | "bridged" | undefined

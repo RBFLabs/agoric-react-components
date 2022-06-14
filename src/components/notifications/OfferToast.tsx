@@ -1,10 +1,10 @@
 import React, { useEffect, useContext, useRef } from 'react'
 import { toast, ToastOptions } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import WalletContext from '../../contexts/WalletContext'
 import styled from 'styled-components'
 import theme from '../../theme'
 import { IoCheckmarkCircleSharp, IoAlertCircleSharp, IoInformationCircleSharp } from 'react-icons/io5'
+import useAgoricWalletContext from '../../hooks/useAgoricWalletContext';
 
 const OfferComponent = styled.div`
     color: ${theme.colors.text2};
@@ -142,7 +142,7 @@ const getUpdatedOffer = (previousOffers: any[], updatedOffers: any[]) => {
 }
 
 function OfferToast() {
-    const { offers } = useContext(WalletContext)
+    const { offers } = useAgoricWalletContext()
     const prevOffers = usePrevious(offers)
 
     const properties: ToastOptions = {

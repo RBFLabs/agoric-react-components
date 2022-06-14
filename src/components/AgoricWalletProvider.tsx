@@ -134,6 +134,10 @@ class AgoricWalletProvider extends React.Component<Props, State> {
     }
   };
 
+  getIsWalletConnected = () => {
+    return this.state.walletState === 'bridged';
+  };
+  
   render() {
     return (
       <WalletContext.Provider
@@ -150,6 +154,7 @@ class AgoricWalletProvider extends React.Component<Props, State> {
           zoe: this.state.zoe,
           offers: this.state.offers,
           purses: this.state.purses,
+          walletConnected: this.getIsWalletConnected(),
           // functions
           connectWallet: this.addWalletConnection,
           resetWalletConnection: this.resetWalletConnection,

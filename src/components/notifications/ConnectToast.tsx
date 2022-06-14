@@ -1,10 +1,10 @@
 import React, { useEffect, useContext } from 'react'
 import { toast, ToastOptions } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import WalletContext from '../../contexts/WalletContext'
 import styled from 'styled-components';
 import theme from '../../theme';
 import { IoCheckmarkCircleSharp } from 'react-icons/io5';
+import useAgoricWalletContext from '../../hooks/useAgoricWalletContext';
 
 const OfferComponent = styled.div`
   color: ${theme.colors.text2};
@@ -25,7 +25,7 @@ const OfferIcon = styled.div`
 function ConnectToast() {
     const toastId = React.useRef<any>(null)
 
-    const { walletState } = useContext(WalletContext)
+    const { walletState } = useAgoricWalletContext()
 
     const properties: ToastOptions = {
         position: 'bottom-left',

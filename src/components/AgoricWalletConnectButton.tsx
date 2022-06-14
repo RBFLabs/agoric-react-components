@@ -1,6 +1,6 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import styled from 'styled-components';
-import WalletContext from '../contexts/WalletContext';
+import useAgoricWalletContext from '../hooks/useAgoricWalletContext';
 
 const Button = styled.button`
   background-color: #bb2d40;
@@ -31,7 +31,7 @@ const Button = styled.button`
 `;
 
 const AgoricWalletConnectButton = () => {
-  const {walletState, connectWallet} = useContext(WalletContext);
+  const {walletState, connectWallet} = useAgoricWalletContext();
 
   const getButton = (walletState: any) => {
     // The text that is displayed might be optional. Use props.children
