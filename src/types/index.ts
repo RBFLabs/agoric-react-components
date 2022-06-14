@@ -1,1 +1,1 @@
-export default null
+export type WalletState = "idle" | "locating" | "connecting" |"approving" | "bridged" | undefined

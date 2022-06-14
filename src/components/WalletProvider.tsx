@@ -35,6 +35,7 @@ interface State {
     zoe: any
     offers: any[]
     purses: any[]
+    error: boolean
 }
 
 class WalletProvider extends React.Component<Props, State> {
@@ -51,6 +52,7 @@ class WalletProvider extends React.Component<Props, State> {
         zoe: undefined,
         offers: [],
         purses: [],
+        error: false,
     }
 
     componentDidMount = async () => {

@@ -2,6 +2,25 @@ import React, { useEffect, useContext } from 'react'
 import { toast, ToastOptions } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import WalletContext from '../../contexts/WalletContext'
+import styled from 'styled-components';
+import theme from '../../theme';
+import { IoCheckmarkCircleSharp } from 'react-icons/io5';
+
+const OfferComponent = styled.div`
+  color: ${theme.colors.text2};
+  display: flex;
+  align-items: center;
+`;
+
+const OfferDescription = styled.div`
+  width: 100%;
+`;
+
+const OfferIcon = styled.div`
+  width: 40px;
+  text-align: center;
+  margin-right: 10px;
+`;
 
 function ConnectToast() {
     const toastId = React.useRef<any>(null)
@@ -63,8 +82,17 @@ function ConnectToast() {
     }
 
     const getComponent = (text: string) => {
-        return <div>{text}</div>
-    }
+        return (
+          <OfferComponent>
+            {text === 'Wallet Connected' && (
+              <OfferIcon>
+                <IoCheckmarkCircleSharp color={theme.colors.green} size={28} />
+              </OfferIcon>
+            )}
+            <OfferDescription>{text ? text : ''}</OfferDescription>
+          </OfferComponent>
+        );
+      };
 
     useEffect(() => {
         const { text, autoClose } = getComponentProps(walletState)

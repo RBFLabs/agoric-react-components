@@ -1,10 +1,12 @@
 import React from 'react'
 import { ToastContainer } from 'react-toastify'
+import { IoCloseOutline } from 'react-icons/io5'
+import theme from '../../theme'
 
 function WalletToastContainer() {
     const closeButton = ({ closeToast }: any) => (
         <div onClick={closeToast} className="flex items-center">
-            X
+            <IoCloseOutline size={20} color={theme.colors.text3} />
         </div>
     )
 

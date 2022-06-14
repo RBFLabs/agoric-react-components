@@ -2,6 +2,25 @@ import React, { useEffect, useContext, useRef } from 'react'
 import { toast, ToastOptions } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import WalletContext from '../../contexts/WalletContext'
+import styled from 'styled-components'
+import theme from '../../theme'
+import { IoCheckmarkCircleSharp, IoAlertCircleSharp, IoInformationCircleSharp } from 'react-icons/io5'
+
+const OfferComponent = styled.div`
+    color: ${theme.colors.text2};
+    display: flex;
+    align-items: center;
+`
+
+const OfferDescription = styled.div`
+    width: 100%;
+`
+
+const OfferIcon = styled.div`
+    width: 40px;
+    text-align: center;
+    margin-right: 10px;
+`
 
 // custom hook for getting previous value
 function usePrevious(value: any) {
@@ -50,33 +69,33 @@ function getOfferToastProps(status: string): {
             }
         default:
             return {
-                text: 'status is not recognized',
+                text: 'failed',
                 autoClose: false,
-                className: 'neutral',
+                className: 'error',
             }
     }
 }
 
-function getStyles(className: string) {
+function getIcon(className: string) {
     // this is just temporary showcase of style changes
     switch (className) {
         case 'success':
-            return {
-                color: 'green',
-            }
+            return <IoCheckmarkCircleSharp color={theme.colors.green} size={28} />
         case 'error':
-            return {
-                color: 'red',
-            }
+            return <IoAlertCircleSharp color={theme.colors.redMedium} size={28} />
         default:
-            return {
-                color: 'grey',
-            }
+            return <IoInformationCircleSharp color={theme.colors.text1} size={28} />
     }
 }
 
 const getComponent = (offerId: number, description: string, className: string) => {
-    return <div style={getStyles(className)}>{`Offer #${offerId} ${description}`}</div>
+    const icon = getIcon(className)
+    return (
+        <OfferComponent>
+            {icon && <OfferIcon>{icon}</OfferIcon>}
+            <OfferDescription>{`Offer #${offerId} ${description}`}</OfferDescription>
+        </OfferComponent>
+    )
 }
 
 const getUpdatedOffer = (previousOffers: any[], updatedOffers: any[]) => {
