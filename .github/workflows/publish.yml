@@ -2,7 +2,7 @@ name: Publish
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   publish:
@@ -38,6 +38,6 @@ jobs:
           git push
 
       - name: Publish NPM packages
-        run: yarn publish
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
