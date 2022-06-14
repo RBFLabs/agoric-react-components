@@ -34,7 +34,7 @@ jobs:
           git config user.name "RBF Labs Bot"
           git config user.email accounts@rbflabs.com
           git add package.json yarn.lock
-          git commit -m "Bump version to $PACKAGE_VERSION"
+          git commit -m "chore: bump version to $PACKAGE_VERSION"
           git push
 
       - name: Publish NPM packages
