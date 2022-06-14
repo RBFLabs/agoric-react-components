@@ -1618,10 +1618,10 @@
     schema-utils "^3.0.0"
     source-map "^0.7.3"
 
-"@rbflabs/agoric-react-components@^0.0.12":
-  version "0.0.12"
-  resolved "https://registry.yarnpkg.com/@rbflabs/agoric-react-components/-/agoric-react-components-0.0.12.tgz#b4f23368cd3d4c61d20a3176ca8b230ce2e1f08e"
-  integrity sha512-rtl5cUDq+DzH9KXKk5aZId+asODcTPErTGoP7W7Hh1FJZITIOQq+Hgw69QAhdhkg8HMubOU/7kaOYgVfjaquqg==
+"@rbflabs/agoric-react-components@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@rbflabs/agoric-react-components/-/agoric-react-components-0.0.13.tgz#cd891b296e9af092802d777649cbafcf36b6fb7a"
+  integrity sha512-kzcRGArGfwAmgnyhmIV90fddOCg0r7QuMp2mTU4yWqJ7EdWaSxQEbW9Ho+mY16XQBPLaYW7tzleAteJjKvADMg==
   dependencies:
     "@agoric/eventual-send" "^0.14.1"
     "@agoric/notifier" "^0.4.0"

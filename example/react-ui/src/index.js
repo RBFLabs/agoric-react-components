@@ -4,11 +4,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {AgoricWalletProvider, AgoricNotifications, ConnectToast, OfferToast} from '@rbflabs/agoric-react-components';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <AgoricWalletProvider dappName="Agoric-Components-Example" autoConnect={false}>
+      <AgoricNotifications />
+      <ConnectToast />
+      <OfferToast />
+      <App />
+    </AgoricWalletProvider>
   </React.StrictMode>
 );
 

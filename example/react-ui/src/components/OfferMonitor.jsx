@@ -2,6 +2,7 @@ import React from 'react';
 import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
 
 const OfferMonitor = () => {
+  // TODO create hooks to return these offers
   const {offers} = useAgoricWalletContext();
 
   const getAcceptedOffers = offers => {
