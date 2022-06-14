@@ -5,7 +5,7 @@
   ],
   "main": "./dist/@rbflabs/agoric-react-components.umd.js",
   "module": "./dist/@rbflabs/agoric-react-components.es.js",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "exports": {
     ".": {
       "import": "./dist/@rbflabs/agoric-react-components.es.js",
