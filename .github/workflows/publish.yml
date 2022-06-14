@@ -33,7 +33,7 @@ jobs:
           PACKAGE_VERSION=`echo $(jq -r '.version' <<< "$PACKAGE_JSON")`
           git config user.name "RBF Labs Bot"
           git config user.email accounts@rbflabs.com
-          git add package.json package-lock.json
+          git add package.json yarn.lock
           git commit -m "Bump version to $PACKAGE_VERSION"
           git push
 
