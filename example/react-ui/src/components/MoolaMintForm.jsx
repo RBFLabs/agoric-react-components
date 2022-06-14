@@ -1,11 +1,14 @@
 /* global harden */
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { E } from '@agoric/eventual-send';
 import WalletContext from '../contexts/WalletContext';
 import format from '../utils/format';
 import { multiplyBLD } from '../utils/ratio';
 import Spinner from './Spinner';
 import theme from '../theme';
+import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import moolaMinterConstants from '../moolaMinterConstants.mjs'
+import nftMinterConstants from '../nftMinterConstants'
 
 import {
   AgoricLogoWrapper,
@@ -18,18 +21,25 @@ import {
   BalanceAmount,
 } from './SBLDMintingForm';
 
-const SBLDBurningForm = (props) => {
+const MoolaMintForm = (props) => {
   const [amount, setAmount] = useState(0);
-  const [offers, setOffers] = useState([]);
+  // const [offers, setOffers] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
-  const {
-    sBLDRatio,
-    BLDPurse,
-    sBLDPurse,
-    walletBridge,
-    publicFacet,
-  } = useContext(WalletContext);
+  const { offers,  zoe, board, walletBridge } = useAgoricWalletContext()
+
+  useEffect(() => {
+    E(walletBridge).suggestIssuer('Moola', moolaMinterConstants.TOKEN_ISSUER_BOARD_ID)
+    E(walletBridge).suggestInstallation('Moola installation', moolaMinterConstants.INSTALLATION_BOARD_ID)
+    E(walletBridge).suggestInstance('Moola Instance', moolaMinterConstants.INSTANCE_BOARD_ID)
+
+    E(walletBridge).suggestIssuer('Awesomez', nftMinterConstants.NFT_ISSUER_BOARD_ID)
+    E(walletBridge).suggestInstallation('Awesomez installation', nftMinterConstants.INSTALLATION_BOARD_ID)
+    E(walletBridge).suggestInstance('Awesomez instance', nftMinterConstants.INSTANCE_BOARD_ID)
+
+    // display notification only when walletState changes
+  }, [walletBridge]);
 
   const burn = async () => {
     setLoading(true);
@@ -106,4 +116,4 @@ const SBLDBurningForm = (props) => {
   );
 };
 
-export default SBLDBurningForm;
+export default MoolaMintForm;

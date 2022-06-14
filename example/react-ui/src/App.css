@@ -1,18 +1,13 @@
 .App {
   text-align: center;
   color: #002237;
-}
-
-.Logo {
-  max-width: 340px;
-  padding: 0 40px 26px 40px;
-  border-bottom: 1px solid #ebebf0;
-  margin-bottom: 44px;
+  max-width: 600px;
+  margin: 0 auto;
+  padding-top: 40px;
 }
 
 .App-header {
   background-color: white;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,14 +73,16 @@ select {
   font-size: 14px;
 }
 
-:-ms-input-placeholder { /* Internet Explorer 10-11 */
- color: #94a2bb;
- font-size: 14px;
+:-ms-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: #94a2bb;
+  font-size: 14px;
 }
 
-::-ms-input-placeholder { /* Microsoft Edge */
- color: #94a2bb;
- font-size: 14px;
+::-ms-input-placeholder {
+  /* Microsoft Edge */
+  color: #94a2bb;
+  font-size: 14px;
 }
 
 label {
