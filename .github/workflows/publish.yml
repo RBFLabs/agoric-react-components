@@ -2,7 +2,7 @@ name: Publish
 
 on:
   push:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
   publish:
@@ -33,11 +33,11 @@ jobs:
           PACKAGE_VERSION=`echo $(jq -r '.version' <<< "$PACKAGE_JSON")`
           git config user.name "RBF Labs Bot"
           git config user.email accounts@rbflabs.com
-          git add package.json package-lock.json
+          git add package.json yarn.lock
           git commit -m "Bump version to $PACKAGE_VERSION"
           git push
 
       - name: Publish NPM packages
-        run: yarn publish
-        env:
-          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
