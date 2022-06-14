@@ -1,3 +1,3 @@
-import WalletContext from "./WalletContext";
+import WalletContext from './WalletContext';
 
-export { WalletContext };
+export {WalletContext};

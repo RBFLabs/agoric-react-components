@@ -22,3 +22,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+example/_agstate/yarn-links/
+example/_agstate/yarn-links/
+example/_agstate/agoric-servers/dev
