@@ -6,6 +6,6 @@ In terminal #1 run:
 In terminal #2 run:
 - `agoric deploy contract-1/deploy.js`
 - `agoric open` 
-- `cd react-ui`
+- `cd react-ui-ts`
 - `yarn`
 - `yarn start`
