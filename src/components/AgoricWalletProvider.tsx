@@ -1,13 +1,13 @@
-import React from 'react';
 import {E} from '@agoric/eventual-send';
+import React from 'react';
+import WalletContext from '../contexts/WalletContext';
+import {AgoricState, AgoricWalletState} from '../model';
 
 // Import does not work. Missing d.ts file
 // import { observeNotifier } from '@agoric/notifier';
 // import { makeReactAgoricWalletConnection } from "@agoric/web-components/react";
 const {makeReactAgoricWalletConnection} = require('@agoric/web-components/react');
 const {observeNotifier} = require('@agoric/notifier');
-
-import WalletContext from '../contexts/WalletContext';
 
 const AgoricWalletConnection = makeReactAgoricWalletConnection(React);
 
@@ -22,37 +22,24 @@ interface Props {
   onConnectionFinish?: (completion: any) => void; // function that performs something when wallet is connected
 }
 
-interface State {
-  dappName: string;
-  autoConnect: boolean;
-  showWalletConnection: boolean;
-  walletState: string;
-  approved: boolean;
-  connected: boolean;
-  walletConnection: any;
-  board: any;
-  walletBridge: any;
-  zoe: any;
-  offers: any[];
-  purses: any[];
-  error: boolean;
-}
-
-class AgoricWalletProvider extends React.Component<Props, State> {
+class AgoricWalletProvider extends React.Component<Props, AgoricState> {
   state = {
     dappName: this.props.dappName,
     autoConnect: this.props.autoConnect,
     showWalletConnection: false,
-    walletState: '',
+    walletState: null,
     approved: true,
     connected: false,
     walletConnection: undefined,
     board: undefined,
     walletBridge: undefined,
+    walletConnected: false,
     zoe: undefined,
     offers: [],
     purses: [],
     error: false,
+    connectWallet: () => {},
+    resetWalletConnection: () => {},
   };
 
   componentDidMount = async () => {
@@ -109,21 +96,21 @@ class AgoricWalletProvider extends React.Component<Props, State> {
     const {walletConnection, state} = ev.detail;
     this.setState({walletState: state});
     switch (state) {
-      case 'idle': {
+      case AgoricWalletState.Idle: {
         console.log('Connection with wallet established, initializing dApp!');
         // ensure we have up to date agoric interface
         this.setupWalletConnection(walletConnection);
         break;
       }
-      case 'approving': {
+      case AgoricWalletState.Approving: {
         this.setState({approved: false});
         break;
       }
-      case 'bridged': {
+      case AgoricWalletState.Bridged: {
         this.setState({approved: true, connected: true});
         break;
       }
-      case 'error': {
+      case AgoricWalletState.Error: {
         console.log('Wallet connection reported error', ev.detail);
         // In case of an error, reset to 'idle'.
         // Backoff or other retry strategies would go here instead of immediate reset.
@@ -137,7 +124,7 @@ class AgoricWalletProvider extends React.Component<Props, State> {
   getIsWalletConnected = () => {
     return this.state.walletState === 'bridged';
   };
-  
+
   render() {
     return (
       <WalletContext.Provider

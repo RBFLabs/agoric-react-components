@@ -37,7 +37,7 @@ const AgoricWalletConnectButton = () => {
     // The text that is displayed might be optional. Use props.children
     switch (walletState) {
       case 'idle':
-        return <Button onClick={() => connectWallet()}>Connect Wallet</Button>;
+        return <Button onClick={() => connectWallet?.()}>Connect Wallet</Button>;
       case 'locating':
         return <Button disabled>Connecting...</Button>;
       case 'connecting':
@@ -47,7 +47,7 @@ const AgoricWalletConnectButton = () => {
       case 'bridged':
         return <Button disabled>Connected!</Button>;
       default:
-        return <Button onClick={() => connectWallet()}>Connect Wallet</Button>;
+        return <Button onClick={() => connectWallet?.()}>Connect Wallet</Button>;
     }
   };
   return getButton(walletState);

@@ -1,5 +1,4 @@
-import ConnectToast from './ConnectToast';
-import OfferToast from './OfferToast';
 import {AgoricNotifications} from './AgoricNotifications';
+import OfferToast from './OfferToast';
 
-export {AgoricNotifications, ConnectToast, OfferToast};
+export {AgoricNotifications, OfferToast};
