@@ -1,5 +1,5 @@
 import {AgoricWalletState} from '../../model';
-import {AgoricNotificationType} from './AgoricNotificationType';
+import {AgoricNotificationsToastType} from './AgoricNotificationsToastType';
 
 export function getConnectNotificationData(walletState: AgoricWalletState) {
   switch (walletState) {
@@ -17,7 +17,7 @@ export function getConnectNotificationData(walletState: AgoricWalletState) {
       return {
         autoClose: 4000,
         text: 'Wallet Connected',
-        type: AgoricNotificationType.Success,
+        type: AgoricNotificationsToastType.Success,
       };
     default:
       // Just for debugging

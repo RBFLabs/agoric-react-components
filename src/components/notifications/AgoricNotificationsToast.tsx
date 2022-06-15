@@ -2,38 +2,38 @@ import React, {useMemo} from 'react';
 import {IoAlertCircleSharp, IoCheckmarkCircleSharp, IoInformationCircleSharp} from 'react-icons/io5';
 import styled from 'styled-components';
 import theme from '../../theme';
-import {AgoricNotificationType} from './AgoricNotificationType';
+import {AgoricNotificationsToastType} from './AgoricNotificationsToastType';
 
-const StyledNotification = styled.div`
+const StyledToast = styled.div`
   color: ${theme.colors.text2};
   display: flex;
   align-items: center;
 `;
 
-const StyledNotificationText = styled.div`
+const StyledToastText = styled.div`
   width: 100%;
 `;
 
-const StyledNotificationIcon = styled.div`
+const StyledToastIcon = styled.div`
   width: 40px;
   text-align: center;
   margin-right: 10px;
 `;
 
-interface AgoricNotificationProps {
+interface AgoricNotificationsToastProps {
   iconSize?: number;
   text: string;
-  type?: AgoricNotificationType;
+  type?: AgoricNotificationsToastType;
 }
 
-export function AgoricNotification({iconSize = 28, text, type}: AgoricNotificationProps) {
+export function AgoricNotificationsToast({iconSize = 28, text, type}: AgoricNotificationsToastProps) {
   const icon = useMemo(() => {
     switch (type) {
-      case AgoricNotificationType.Success:
+      case AgoricNotificationsToastType.Success:
         return <IoCheckmarkCircleSharp color={theme.colors.green} size={iconSize} />;
-      case AgoricNotificationType.Error:
+      case AgoricNotificationsToastType.Error:
         return <IoAlertCircleSharp color={theme.colors.redMedium} size={iconSize} />;
-      case AgoricNotificationType.Info:
+      case AgoricNotificationsToastType.Info:
         return <IoInformationCircleSharp color={theme.colors.text1} size={iconSize} />;
       default:
         return null;
@@ -41,9 +41,9 @@ export function AgoricNotification({iconSize = 28, text, type}: AgoricNotificati
   }, [iconSize, type]);
 
   return (
-    <StyledNotification>
-      {icon && <StyledNotificationIcon>{icon}</StyledNotificationIcon>}
-      <StyledNotificationText>{text}</StyledNotificationText>
-    </StyledNotification>
+    <StyledToast>
+      {icon && <StyledToastIcon>{icon}</StyledToastIcon>}
+      <StyledToastText>{text}</StyledToastText>
+    </StyledToast>
   );
 }

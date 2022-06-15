@@ -1,4 +1,2 @@
-import {AgoricNotifications} from './AgoricNotifications';
-import OfferToast from './OfferToast';
-
-export {AgoricNotifications, OfferToast};
+export * from './AgoricNotifications';
+export * from './AgoricNotificationsGroup';
