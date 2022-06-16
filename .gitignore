@@ -8,6 +8,7 @@ dist-ssr
 *.local
 .env
 .cache
+.idea/
 server/dist
 public/dist
 .turbo
@@ -16,3 +17,5 @@ storybook-static/
 contracts/_agstate/yarn-links/
 contracts/_agstate/yarn-links/
 contracts/_agstate/agoric-servers/dev
+
+demo/**/*MinterConstants.mjs
