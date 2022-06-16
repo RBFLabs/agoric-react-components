@@ -49,7 +49,7 @@ const MintForm = props => {
     });
 
     console.log('adding offer to mint Moolas');
-    const newOffer = await E(walletBridge).addOffer(offerConfig);
+    await E(walletBridge).addOffer(offerConfig);
   };
 
   return (
