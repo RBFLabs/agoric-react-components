@@ -27,7 +27,7 @@ jobs:
         run: yarn lint
 
       - name: Format (Prettier)
-        run: yarn format
+        run: yarn format:fix
 
       - name: Build
         run: yarn build
