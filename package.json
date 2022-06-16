@@ -10,6 +10,7 @@
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --ignore-path .gitignore",
+    "format:check": "yarn format --check \"**/*.{js,jsx,ts,tsx,md}\"",
     "format:fix": "yarn format --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "changeset-create": "changeset",
     "changeset-apply": "changeset version",
