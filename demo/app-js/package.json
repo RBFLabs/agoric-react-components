@@ -12,10 +12,11 @@
   "dependencies": {
     "@bigstair/core": "*",
     "@bigstair/map": "*",
+    "@endo/init": "^0.5.42",
     "@rbflabs/agoric-react-components": "*",
+    "jest": "^28.1.1",
     "react": "18.0.0",
-    "react-dom": "18.0.0",
-    "@endo/init": "^0.5.42"
+    "react-dom": "18.0.0"
   },
   "devDependencies": {
     "@types/react": "18.0.0",
