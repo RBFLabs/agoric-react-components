@@ -5,8 +5,8 @@ import WalletContext from '../contexts/WalletContext';
 import {AgoricState, AgoricWalletState} from '../model';
 
 // Import does not work. Missing d.ts file
-import { observeNotifier } from '@agoric/notifier';
-import { makeReactAgoricWalletConnection } from "@agoric/web-components/react";
+import {observeNotifier} from '@agoric/notifier';
+import {makeReactAgoricWalletConnection} from '@agoric/web-components/react';
 
 const AgoricWalletConnection = makeReactAgoricWalletConnection(React);
 

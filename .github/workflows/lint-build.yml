@@ -1,9 +1,6 @@
-name: Prettier
+name: Lint & Build
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
@@ -11,8 +8,8 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
-  prettier:
-    name: Prettier
+  lint-build:
+    name: Lint & Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -26,5 +23,11 @@ jobs:
       - name: Install Dependencies
         run: yarn install
 
-      - name: Prettier
+      - name: Lint
+        run: yarn lint
+
+      - name: Format (Prettier)
         run: yarn format
+
+      - name: Build
+        run: yarn build

@@ -3,7 +3,7 @@ import '@endo/init';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import { AgoricWalletProvider } from '@rbflabs/agoric-react-components';
+import {AgoricWalletProvider} from '@rbflabs/agoric-react-components';
 
 import './index.css';
 
