@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -14,12 +14,7 @@ function App() {
           Edit <code>App.tsx</code> and save to test HMR updates.
         </p>
         <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
             Learn React
           </a>
           {' | '}
