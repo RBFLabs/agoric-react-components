@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {toast, ToastContainer, ToastOptions} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import useAgoricWalletContext from '../../hooks/useAgoricWalletContext';
 import {usePrevious} from '../../hooks/usePrevious';
 import {AgoricNotificationsCloseButton} from './AgoricNotificationsCloseButton';
