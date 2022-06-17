@@ -1,5 +1,5 @@
-import React, {useEffect} from 'react';
-import {toast, ToastContainer, ToastOptions} from 'react-toastify';
+import React, {useEffect, useRef} from 'react';
+import {Id, toast, ToastContainer, ToastOptions} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import useAgoricWalletContext from '../../hooks/useAgoricWalletContext';
 import {usePrevious} from '../../hooks/usePrevious';
@@ -29,6 +29,8 @@ export function AgoricNotifications({
   const {offers, walletState} = useAgoricWalletContext();
   const previousOffers = usePrevious(offers);
 
+  const connectToastId = useRef<Id>(0);
+
   useEffect(() => {
     if (!groups?.includes(AgoricNotificationsGroup.Connect) || !walletState) {
       return;
@@ -38,8 +40,15 @@ export function AgoricNotifications({
 
     const options: ToastOptions = {...defaultToastOptions, autoClose, containerId};
 
-    toast(<AgoricNotificationsToast text={text} type={type} />, options);
-  }, [groups, walletState]);
+    if (toast.isActive(connectToastId.current)) {
+      toast.update(connectToastId.current, {
+        ...options,
+        render: () => <AgoricNotificationsToast text={text} type={type} />,
+      });
+    } else {
+      connectToastId.current = toast(<AgoricNotificationsToast text={text} type={type} />, options);
+    }
+  }, [connectToastId, groups, walletState]);
 
   useEffect(() => {
     if (!groups?.includes(AgoricNotificationsGroup.Offer)) {
