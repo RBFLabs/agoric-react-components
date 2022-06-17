@@ -1,5 +1,5 @@
 {
-  "name": "@rbflabs/eslint-config",
+  "name": "eslint-config-rbflabs",
   "version": "0.0.0",
   "main": "index.js",
   "license": "MIT",

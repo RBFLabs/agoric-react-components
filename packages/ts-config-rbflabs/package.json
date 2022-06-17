@@ -1,5 +1,5 @@
 {
-  "name": "@rbflabs/ts-config",
+  "name": "ts-config-rbflabs",
   "version": "0.0.0",
   "license": "MIT",
   "private": true,
