@@ -1,5 +1,11 @@
 # @rbflabs/agoric-react-components
 
+## 0.0.18
+
+### Patch Changes
+
+- 8942d5b: use styled-components again
+
 ## 0.0.17
 
 ### Patch Changes
