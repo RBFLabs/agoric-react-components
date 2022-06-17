@@ -1,6 +1,6 @@
 # @rbflabs/agoric-react-components
 
-## 0.0.15
+## 0.0.16
 
 ### Patch Changes
 
