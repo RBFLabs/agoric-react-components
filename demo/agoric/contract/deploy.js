@@ -152,14 +152,10 @@ const deployContract = async (homePromise, { pathResolve }) => {
     INVITE_BRAND_BOARD_ID,
   };
   const defaultsFile1 = pathResolve(
-    `../../demo/app-js/src/moolaMinterConstants.mjs`,
-  );
-  const defaultsFile2 = pathResolve(
-    `../../demo/app-ts/src/moolaMinterConstants.mjs`,
+    `../../app-js/src/moolaMinterConstants.mjs`,
   );
 
   console.log('writing', defaultsFile1);
-  console.log('writing', defaultsFile2);
 
   const defaultsContents = `\
 // GENERATED FROM ${pathResolve('./deploy.js')}
@@ -167,7 +163,6 @@ export default ${JSON.stringify(dappConstants, undefined, 2)};
 `;
 
   await fs.promises.writeFile(defaultsFile1, defaultsContents);
-  await fs.promises.writeFile(defaultsFile2, defaultsContents);
 };
 
 export default deployContract;

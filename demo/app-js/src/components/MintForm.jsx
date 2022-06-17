@@ -4,7 +4,7 @@ import {E} from '@agoric/eventual-send';
 import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
 import moolaMinterConstants from '../moolaMinterConstants.mjs';
 
-const MintForm = props => {
+const MintForm = () => {
   const [amount, setAmount] = useState(0);
   const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
@@ -53,18 +53,10 @@ const MintForm = props => {
   };
 
   return (
-    <div id="Mint-form">
-      <div className="Mint-form-input-row">
-        <label>Amount of Moola to mint:</label>
-        <input
-          type="text"
-          pattern="[0-9]*"
-          id="mintInput"
-          onChange={ev => setAmount(parseInt(ev.target.value) || 0)}
-          value={amount}
-        />
-        <button onClick={() => mintSomeMoola()}>Get some Moola!</button>
-      </div>
+    <div className="MintForm">
+      <label>Amount of Moola to mint:</label>
+      <input type="text" pattern="[0-9]*" onChange={ev => setAmount(parseInt(ev.target.value) || 0)} value={amount} />
+      <button onClick={() => mintSomeMoola()}>Get some Moola!</button>
     </div>
   );
 };

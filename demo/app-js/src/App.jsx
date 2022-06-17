@@ -1,32 +1,37 @@
 import './App.css';
 import {AgoricWalletConnectButton, useAgoricWalletContext} from '@rbflabs/agoric-react-components';
 import OfferMonitor from './components/OfferMonitor';
+import PurseMonitor from './components/PurseMonitor';
 import MintForm from './components/MintForm';
 
 function App() {
-  const {walletConnected, purses} = useAgoricWalletContext();
+  const {walletConnected, purses, walletState} = useAgoricWalletContext();
+
+  let content;
 
   if (!walletConnected) {
-    return (
-      <div className="App">
-        Wallet not connected
-        <AgoricWalletConnectButton />
-      </div>
+    content = <h2>Hello, welcome to Agoric React Demo. Connect your wallet to continue!</h2>;
+  } else if (walletConnected && !purses) {
+    content = 'Loading purses...';
+  } else if (walletConnected && purses && purses.length === 0) {
+    content = 'No purses in your wallet...';
+  } else {
+    content = (
+      <>
+        <MintForm />
+        <OfferMonitor />
+        <PurseMonitor />
+      </>
     );
-  }
-
-  if (walletConnected && !purses) {
-    return <div className="App">Loading purses...</div>;
-  }
-
-  if (walletConnected && purses && purses.length === 0) {
-    return <div className="App">No purses in your wallet...</div>;
   }
 
   return (
     <div className="App">
-      <MintForm />
-      <OfferMonitor />
+      <div className="App-header">
+        <div id="WalletState">Wallet State: {walletState || 'none'}</div>
+        <AgoricWalletConnectButton />
+      </div>
+      {content}
     </div>
   );
 }

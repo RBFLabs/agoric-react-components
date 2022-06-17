@@ -1,42 +1,64 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+  max-width: 480px;
+  margin: 0 auto;
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  width: 100%;
+  height: 60px;
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  border-bottom: 1px solid black;
+  margin-bottom: 20px;
+}
+
+#WalletState {
+  width: 100%;
+}
+
+.Monitor {
+  text-align: left;
+}
+
+.Monitor ul {
+  margin-bottom: 14px;
+}
+
+.MintForm {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.MintForm label {
+  width: 100%;
+}
+
+.MintForm input[type='text'],
+select {
+  width: 80px;
+  height: 40px;
+  display: inline-block;
+  border: 1px solid #d9d9ef;
+  border-radius: 12px;
+  padding: 4px 10px;
+  margin: 0 12px 0 12px;
+  text-align: left;
+}
+
+.MintForm button {
+  height: 40px;
+  width: 100%;
+  background-color: #d73252;
   color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-button {
-  font-size: calc(10px + 2vmin);
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
 }

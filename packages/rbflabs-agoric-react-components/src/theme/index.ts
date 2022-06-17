@@ -8,7 +8,7 @@ const theme = {
 
     // highlight colors
     redLight: '#ea3434',
-    red: '#e31e1e',
+    red: '#D73252',
     redMedium: '#ce1a1a',
     redDark: '#bf1717',
     green: '#40bf4a',

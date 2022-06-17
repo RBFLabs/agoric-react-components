@@ -9,7 +9,7 @@ import './index.css';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <AgoricWalletProvider dappName="test" autoConnect={false}>
+    <AgoricWalletProvider dappName="test-agoric-dapp" autoConnect={false}>
       <AgoricNotifications />
       <App />
     </AgoricWalletProvider>

@@ -1,97 +1,146 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, {useMemo} from 'react';
 import useAgoricWalletContext from '../hooks/useAgoricWalletContext';
 import {AgoricWalletState} from '../model';
+import theme from '../theme';
+import styled, {keyframes} from 'styled-components';
+
+const SPIN = keyframes`
+    0% { 
+        transform: rotate(0deg); 
+    }
+    100% { 
+        transform: rotate(360deg);
+    }
+`;
+
+const Wrapper = styled.div<{size: number}>`
+  position: relative;
+  width: ${props => `${props.size}px`};
+  height: ${props => `${props.size}px`};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+`;
+
+const StyledLoader = styled.div<{size: number; strokeWidth: number}>`
+  box-sizing: border-box;
+  position: relative;
+  text-indent: -9999em;
+  border-top: ${props => `${props.strokeWidth}px solid ${props.color}`};
+  border-right: ${props => `${props.strokeWidth}px solid ${props.color}`};
+  border-bottom: ${props => `${props.strokeWidth}px solid ${props.color}`};
+  border-left: ${props => `${props.strokeWidth}px solid transparent`};
+  transform: translateZ(0);
+  animation: ${SPIN} 1s infinite linear;
+  &,
+  &:after {
+    border-radius: 100%;
+    width: ${props => `${props.size}px`};
+    height: ${props => `${props.size}px`};
+  }
+`;
+
+interface LoaderProps {
+  className?: string;
+  size: number;
+  strokeWidth?: number;
+  color?: string;
+}
+
+const Loader = ({className, size = 20, strokeWidth = 2, color = theme.colors.text1, ...rest}: LoaderProps) => (
+  <Wrapper className={className} size={size} {...rest}>
+    <StyledLoader size={size} strokeWidth={strokeWidth} color={color} />
+  </Wrapper>
+);
 
 const Button = styled.button`
-  background-color: #bb2d40;
-  width: 10em;
+  background-color: ${theme.colors.red};
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 15em;
   padding: 1em;
   color: white;
   cursor: pointer;
   border: none;
   border-radius: 12px;
   font-weight: 600;
-  display: inline-block;
-  cursor: pointer;
   outline: none;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease 0s;
 
   &:disabled {
     cursor: not-allowed;
-  }
-
-  &:hover {
-    background-color: #bb2d40;
-  }
-
-  &:active {
-    background-color: #bb2d40;
+    background-color: ${theme.colors.bgDark};
+    color: ${theme.colors.text2};
   }
 `;
 
 interface ButtonProps {
-  onClick: (() => void) | undefined;
   disabled: boolean;
-  children: string | JSX.Element;
+  loading: boolean;
+  text: string;
+  onClick: (() => void) | undefined;
 }
 
-const AgoricWalletConnectButton = () => {
+const AgoricWalletConnectButton = (props) => {
   const {walletState, connectWallet} = useAgoricWalletContext();
 
-  const getButton = (walletState: AgoricWalletState | null | undefined): ButtonProps => {
-    // The text that is displayed might be optional. Use props.children
+  const {disabled, loading, onClick, text} = useMemo((): ButtonProps => {
     switch (walletState) {
       case AgoricWalletState.Idle:
         return {
           disabled: false,
+          loading: false,
           onClick: connectWallet,
-          children: 'Connect Wallet',
+          text: 'Connect Wallet',
         };
 
       case AgoricWalletState.Locating:
         return {
           disabled: true,
+          loading: true,
           onClick: undefined,
-          children: 'Connecting...',
+          text: 'Connecting...',
         };
 
       case AgoricWalletState.Connecting:
         return {
           disabled: true,
+          loading: true,
           onClick: undefined,
-          children: 'Connecting...',
+          text: 'Connecting...',
         };
 
       case AgoricWalletState.Approving:
         return {
           disabled: true,
+          loading: true,
           onClick: undefined,
-          children: 'Approving...',
+          text: 'Approving...',
         };
 
       case AgoricWalletState.Bridged:
         return {
           disabled: true,
+          loading: false,
           onClick: undefined,
-          children: 'Connected!',
+          text: 'Connected!',
         };
 
       default:
         return {
           disabled: false,
+          loading: false,
           onClick: connectWallet,
-          children: 'Connect Wallet',
+          text: 'Connect Wallet',
         };
     }
-  };
-
-  const {disabled, onClick, children} = getButton(walletState);
+  }, [walletState]);
 
   return (
-    <Button disabled={disabled} onClick={onClick}>
-      {children}
+    <Button disabled={disabled} onClick={onClick} className={props.className}>
+      {loading && <Loader size={18} color={theme.colors.text2} />}
+      {text}
     </Button>
   );
 };

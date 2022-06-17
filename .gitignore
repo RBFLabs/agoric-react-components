@@ -14,8 +14,8 @@ public/dist
 .turbo
 storybook-static/
 
-contracts/_agstate/yarn-links/
-contracts/_agstate/yarn-links/
-contracts/_agstate/agoric-servers/dev
+demo/agoric/_agstate/yarn-links/
+demo/agoric/_agstate/yarn-links/
+demo/agoric/_agstate/agoric-servers/dev
 
 demo/**/*MinterConstants.mjs

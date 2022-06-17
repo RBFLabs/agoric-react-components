@@ -9,7 +9,7 @@ Open Terminal #1. Make sure you are using Node 16 and Agoric SDK is installed.
 
 Open Terminal #2:
 
-- `cd contract-1`
+- `cd contract`
 - `yarn`
 - `agoric deploy deploy.js`
 - `agoric open`

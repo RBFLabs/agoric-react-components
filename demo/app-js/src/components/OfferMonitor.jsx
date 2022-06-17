@@ -1,39 +1,36 @@
 import React from 'react';
-import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import {useOffers} from '../hooks';
 
 const OfferMonitor = () => {
-  // TODO create hooks to return these offers
-  const {offers} = useAgoricWalletContext();
-
-  const getAcceptedOffers = offers => {
-    return offers.filter(o => o.status === 'accept');
-  };
-
-  const getDeclinedOffers = offers => {
-    return offers.filter(o => o.status === 'decline');
-  };
-
-  const getPendingOffers = offers => {
-    return offers.filter(o => o.status === 'pending');
-  };
-
-  const getCompletedOffers = offers => {
-    return offers.filter(o => o.status === 'complete');
-  };
-
-  const getProposedOffers = offers => {
-    return offers.filter(o => o.status === undefined);
-  };
+  const allOffers = useOffers();
+  const acceptedOffers = useOffers('accepted');
+  const declinedOffers = useOffers('declined');
+  const pendingOffers = useOffers('pending');
+  const completedOffers = useOffers('completed');
+  const proposedOffers = useOffers('proposed');
 
   return (
-    <div>
-      All wallet offers count: {offers.length}
+    <div className="Monitor">
+      <h3>Wallet Offers:</h3>
       <ul>
-        <li>Accepted: {getAcceptedOffers(offers).length}</li>
-        <li>Declined: {getDeclinedOffers(offers).length}</li>
-        <li>Pending: {getPendingOffers(offers).length}</li>
-        <li>Proposed: {getProposedOffers(offers).length}</li>
-        <li>Completed: {getCompletedOffers(offers).length}</li>
+        <li>All wallet offers: {allOffers.length}</li>
+        <li>Accepted: {acceptedOffers.length}</li>
+        <li>Declined: {declinedOffers.length}</li>
+        <li>Pending: {pendingOffers.length}</li>
+        <li>Proposed: {proposedOffers.length}</li>
+        <li>Completed: {completedOffers.length}</li>
+      </ul>
+    <hr />
+      <ul>
+        {allOffers.map(offer => (
+          <li>
+            <ul>
+              <li>ID: {offer.id}</li>
+              <li>Description: {offer.invitationDetails.description}</li>
+              <li>Status: {offer.status}</li>
+            </ul>
+          </li>
+        ))}
       </ul>
     </div>
   );

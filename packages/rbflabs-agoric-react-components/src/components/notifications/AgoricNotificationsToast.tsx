@@ -19,23 +19,6 @@ const StyledToastIcon = styled.div`
   text-align: center;
   margin-right: 10px;
 `;
-
-const toastStyle = {
-  color: theme.colors.text2,
-  display: 'flex',
-  alignItems: 'center',
-};
-
-const toastTextStyle = {
-  width: '100%',
-};
-
-const toastIconStyle = {
-  width: '40px',
-  marginRight: '10px',
-  alignItems: 'center' as const,
-};
-
 interface AgoricNotificationsToastProps {
   iconSize?: number;
   text: string;
@@ -57,9 +40,9 @@ export function AgoricNotificationsToast({iconSize = 28, text, type}: AgoricNoti
   }, [iconSize, type]);
 
   return (
-    <StyledToast style={toastStyle}>
-      {icon && <StyledToastIcon style={toastTextStyle}>{icon}</StyledToastIcon>}
-      <StyledToastText style={toastIconStyle}>{text}</StyledToastText>
+    <StyledToast>
+      {icon && <StyledToastIcon>{icon}</StyledToastIcon>}
+      <StyledToastText>{text}</StyledToastText>
     </StyledToast>
   );
 }
