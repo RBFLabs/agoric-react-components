@@ -43,7 +43,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ```
 
-`AgoricWalletProvider` has multiple props you can access using `useAgoricWalletContext` hook:
+`AgoricWalletProvider` gives you multiple props you can access using `useAgoricWalletContext` hook.
 
 ```tsx:demo/app-js/src/main.jsx
 import React from 'react';
