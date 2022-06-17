@@ -47,6 +47,6 @@
     "access": "public"
   },
   "resolutions": {
-    "styled-components": "^5"
+    "styled-components": "^5.3.5"
   }
 }
