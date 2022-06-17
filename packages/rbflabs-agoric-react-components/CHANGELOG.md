@@ -1,5 +1,11 @@
 # @rbflabs/agoric-react-components
 
+## 0.0.19
+
+### Patch Changes
+
+- 566b335: Fixed notifications Improved RADME.md
+
 ## 0.0.18
 
 ### Patch Changes
