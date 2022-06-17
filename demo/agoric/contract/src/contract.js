@@ -1,13 +1,46 @@
 // @ts-check
 
+import { Far } from '@endo/marshal';
+import { AssetKind, AmountMath } from '@agoric/ertp';
+import { assertProposalShape } from '@agoric/zoe/src/contractSupport/index.js';
+
+/**
+ * Example contract that knows how to
+ * 1. say Hello nicely
+ * 2. invite you to ask it to say hello
+ * 3. mint you some tokens!
+ */
 const start = async (zcf) => {
-  // 1. create a mint for Moolas or whatever tokens you want (mints are made using makeZCFMint inside contracts)
-  // 2. create a function sayHello that takes a seat and returns hello, add the invitation to the creator facet
-  // 4. create a function that mints any amount of moolas requested up to 1000n
+  // our internal mint for Moolas, only we have access to it
+  const moolaMint = await zcf.makeZCFMint('Moola', AssetKind.NAT);
+  const { brand: moolaBrand, issuer } = moolaMint.getIssuerRecord();
 
-  const creatorFacet = {};
+  const mintMoola = (seat) => {
+    assertProposalShape(seat, {
+      want: { Tokens: null },
+    });
+    const { want } = seat.getProposal();
+    assert(
+      AmountMath.isGTE(AmountMath.make(moolaBrand, 1000n), want.Tokens),
+      'You ask too much!',
+    );
 
-  return harden({ creatorFacet });
+    moolaMint.mintGains(want, seat);
+    seat.exit();
+    return 'Here you go';
+  };
+
+  // accessible to anyone
+  const publicFacet = Far('publicFacet', {
+    makeMintInvitation: () => zcf.makeInvitation(mintMoola, 'mintSome'),
+    getIssuer: () => issuer,
+  });
+
+  // in the solution, we also provide a public Facet that is available
+  // to anyone holding a reference to the contract itself. We thus allow anyone to mint themselves money
+  // Far() is necessary when we deploy the contract to our local testnet and want to access it from a dApp
+  // Docs: https://agoric.com/documentation/guides/js-programming/far.html
+  return harden({ publicFacet });
 };
 
 harden(start);
