@@ -23,12 +23,11 @@ interface AgoricNotificationsProps {
   groups?: AgoricNotificationsGroup[];
 }
 
-export function AgoricNotifications({
-  groups = [AgoricNotificationsGroup.Connect, AgoricNotificationsGroup.Offer],
-}: AgoricNotificationsProps = {}) {
+const DEFAULT_GROUPS = [AgoricNotificationsGroup.Connect, AgoricNotificationsGroup.Offer];
+
+export function AgoricNotifications({groups = DEFAULT_GROUPS}: AgoricNotificationsProps = {}) {
   const {offers, walletState} = useAgoricWalletContext();
   const previousOffers = usePrevious(offers);
-
   const connectToastId = useRef<Id>(0);
 
   useEffect(() => {
@@ -48,7 +47,7 @@ export function AgoricNotifications({
     } else {
       connectToastId.current = toast(<AgoricNotificationsToast text={text} type={type} />, options);
     }
-  }, [connectToastId, groups, walletState]);
+  }, [connectToastId, walletState, groups]);
 
   useEffect(() => {
     if (!groups?.includes(AgoricNotificationsGroup.Offer)) {

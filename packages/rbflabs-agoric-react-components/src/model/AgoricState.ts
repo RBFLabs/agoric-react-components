@@ -4,7 +4,6 @@ export interface AgoricState {
   approved: boolean;
   autoConnect: boolean;
   board: any;
-  connected: boolean;
   connectWallet: () => void;
   dappName: string;
   error: boolean;

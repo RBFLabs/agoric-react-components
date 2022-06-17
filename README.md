@@ -8,6 +8,7 @@ This repo contains components library and demo app using these components.
 - `cd agoric-react-components`
 
 ## Useful Commands
+
 - `yarn build` - Build all packages
 - `yarn dev` - Run all packages locally
 - `yarn lint` - Lint all packages
@@ -15,14 +16,16 @@ This repo contains components library and demo app using these components.
 - `yarn clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
 
 ## Components List
+
 The library contains of the following components:
+
 - `AgoricWalletProvider`
 - `AgoricNotifications`
 - `AgoricWalletConnectButton`
 
 ## Components Usage
 
-Use Agoric wallet provider in your app like this:
+Use Agoric wallet provider in your app like this (`main.jsx` file):
 
 ```tsx:demo/app-js/src/main.jsx
 import React from 'react';
@@ -32,12 +35,39 @@ import {AgoricNotifications, AgoricWalletProvider, AgoricWalletConnectButton} fr
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AgoricWalletProvider dappName="agoric-dapp" autoConnect={false}>
-      <AgoricNotifications />
+      <AgoricNotifications groups={['connect', 'offer']} />
       <AgoricWalletConnectButton />
       Hello, I am Agoric React App!
     </AgoricWalletProvider>
   </React.StrictMode>
 );
+```
+
+`AgoricWalletProvider` has multiple props you can access using `useAgoricWalletContext` hook:
+
+```tsx:demo/app-js/src/main.jsx
+import React from 'react';
+import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+
+const SomeComponent = () => {
+  const {
+    autoConnect,
+    approved,
+    board,
+    dappName,
+    offers,
+    purses,
+    walletBridge,
+    walletConnected,
+    walletConnection,
+    walletState,
+    zoe,
+    connectWallet, // function
+    resetWalletConnection // function
+    } = useAgoricWalletContext();
+
+    return { ...}
+}
 ```
 
 ## Versioning & Publishing Packages

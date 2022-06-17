@@ -23,7 +23,7 @@ const OfferMonitor = () => {
     <hr />
       <ul>
         {allOffers.map(offer => (
-          <li>
+          <li key={offer.id}>
             <ul>
               <li>ID: {offer.id}</li>
               <li>Description: {offer.invitationDetails.description}</li>

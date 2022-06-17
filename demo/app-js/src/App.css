@@ -48,7 +48,7 @@ select {
   border-radius: 12px;
   padding: 4px 10px;
   margin: 0 12px 0 12px;
-  text-align: left;
+  text-align: right;
 }
 
 .MintForm button {
@@ -61,4 +61,8 @@ select {
   border-radius: 12px;
   font-weight: 600;
   display: inline-block;
+}
+
+.MintForm button:active {
+  background-color: #c72948;
 }

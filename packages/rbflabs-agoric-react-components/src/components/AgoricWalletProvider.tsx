@@ -28,7 +28,6 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
     showWalletConnection: false,
     walletState: null,
     approved: true,
-    connected: false,
     walletConnection: undefined,
     board: undefined,
     walletBridge: undefined,
@@ -106,7 +105,7 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
         break;
       }
       case AgoricWalletState.Bridged: {
-        this.setState({approved: true, connected: true});
+        this.setState({approved: true});
         break;
       }
       case AgoricWalletState.Error: {
@@ -132,7 +131,6 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
           dappName: this.state.dappName,
           autoConnect: this.state.autoConnect,
           approved: this.state.approved,
-          connected: this.state.connected,
           walletState: this.state.walletState,
           walletConnection: this.state.walletConnection,
           board: this.state.board,

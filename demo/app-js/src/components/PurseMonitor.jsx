@@ -9,7 +9,7 @@ const PurseMonitor = () => {
       <h3>Wallet Purses:</h3>
       <ul>
         {purses.map(purse => (
-          <li>
+          <li key={purse.pursePetname}>
             <ul>
               <li>Purse petname: {purse.pursePetname}</li>
               <li>Purse value: {Number(purse.value)}</li>

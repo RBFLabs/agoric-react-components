@@ -82,7 +82,7 @@ interface ButtonProps {
   onClick: (() => void) | undefined;
 }
 
-const AgoricWalletConnectButton = (props) => {
+const AgoricWalletConnectButton = (props: React.HTMLProps<HTMLButtonElement>) => {
   const {walletState, connectWallet} = useAgoricWalletContext();
 
   const {disabled, loading, onClick, text} = useMemo((): ButtonProps => {
@@ -135,7 +135,7 @@ const AgoricWalletConnectButton = (props) => {
           text: 'Connect Wallet',
         };
     }
-  }, [walletState]);
+  }, [walletState, connectWallet]);
 
   return (
     <Button disabled={disabled} onClick={onClick} className={props.className}>
