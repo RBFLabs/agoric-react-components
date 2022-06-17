@@ -1,4 +1,4 @@
-import '@endo/init';
+import './installSesLockdown';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
