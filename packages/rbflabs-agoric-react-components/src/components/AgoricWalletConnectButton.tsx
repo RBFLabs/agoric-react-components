@@ -1,35 +1,35 @@
-import React, {useMemo} from 'react';
-// import styled from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import useAgoricWalletContext from '../hooks/useAgoricWalletContext';
-import {AgoricWalletState} from '../model/AgoricWalletState';
+import {AgoricWalletState} from '../model';
 
-// const Button = styled.button`
-//   background-color: #bb2d40;
-//   width: 10em;
-//   padding: 1em;
-//   color: white;
-//   cursor: pointer;
-//   border: none;
-//   border-radius: 12px;
-//   font-weight: 600;
-//   display: inline-block;
-//   cursor: pointer;
-//   outline: none;
-//   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-//   transition: all 0.2s ease 0s;
+const Button = styled.button`
+  background-color: #bb2d40;
+  width: 10em;
+  padding: 1em;
+  color: white;
+  cursor: pointer;
+  border: none;
+  border-radius: 12px;
+  font-weight: 600;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease 0s;
 
-//   &:disabled {
-//     cursor: not-allowed;
-//   }
+  &:disabled {
+    cursor: not-allowed;
+  }
 
-//   &:hover {
-//     background-color: #bb2d40;
-//   }
+  &:hover {
+    background-color: #bb2d40;
+  }
 
-//   &:active {
-//     background-color: #bb2d40;
-//   }
-// `;
+  &:active {
+    background-color: #bb2d40;
+  }
+`;
 
 interface ButtonProps {
   onClick: (() => void) | undefined;
@@ -47,52 +47,52 @@ const AgoricWalletConnectButton = () => {
         return {
           disabled: false,
           onClick: connectWallet,
-          children: "Connect Wallet"
+          children: 'Connect Wallet',
         };
-        
+
       case AgoricWalletState.Locating:
         return {
           disabled: true,
           onClick: undefined,
-          children: "Connecting..."
+          children: 'Connecting...',
         };
-        
+
       case AgoricWalletState.Connecting:
         return {
           disabled: true,
           onClick: undefined,
-          children: "Connecting..."
+          children: 'Connecting...',
         };
 
       case AgoricWalletState.Approving:
         return {
           disabled: true,
           onClick: undefined,
-          children: "Approving..."
-        }
+          children: 'Approving...',
+        };
 
-        case AgoricWalletState.Bridged:
+      case AgoricWalletState.Bridged:
         return {
           disabled: true,
           onClick: undefined,
-          children: "Connected!"
-        }
+          children: 'Connected!',
+        };
 
       default:
         return {
           disabled: false,
           onClick: connectWallet,
-          children: "Connect Wallet"
-        }
+          children: 'Connect Wallet',
+        };
     }
   };
 
   const {disabled, onClick, children} = getButton(walletState);
 
   return (
-    <button disabled={disabled} onClick={onClick}>
+    <Button disabled={disabled} onClick={onClick}>
       {children}
-    </button>
+    </Button>
   );
 };
 

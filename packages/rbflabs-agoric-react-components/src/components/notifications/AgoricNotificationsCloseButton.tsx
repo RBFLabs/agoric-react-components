@@ -1,14 +1,14 @@
 import React from 'react';
 import {IoCloseOutline} from 'react-icons/io5';
 import {CloseButtonProps} from 'react-toastify/dist/components';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import theme from '../../theme';
 
-// const StyledButton = styled.button`
-//   all: unset;
-//   display: flex;
-//   align-items: center;
-// `;
+const StyledButton = styled.button`
+  all: unset;
+  display: flex;
+  align-items: center;
+`;
 
 const buttonStyles = {
   display: 'flex',
@@ -18,8 +18,8 @@ const buttonStyles = {
 
 export function AgoricNotificationsCloseButton({closeToast}: CloseButtonProps) {
   return (
-    <div style={buttonStyles} onClick={closeToast}>
+    <StyledButton style={buttonStyles} onClick={closeToast}>
       <IoCloseOutline size={20} color={theme.colors.text3} />
-    </div>
+    </StyledButton>
   );
 }

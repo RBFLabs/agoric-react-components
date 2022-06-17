@@ -1,24 +1,24 @@
 import React, {useMemo} from 'react';
 import {IoAlertCircleSharp, IoCheckmarkCircleSharp, IoInformationCircleSharp} from 'react-icons/io5';
-// import styled from 'styled-components';
+import styled from 'styled-components';
 import theme from '../../theme';
 import {AgoricNotificationsToastType} from './AgoricNotificationsToastType';
 
-// const StyledToast = styled.div`
-//   color: ${theme.colors.text2};
-//   display: flex;
-//   align-items: center;
-// `;
+const StyledToast = styled.div`
+  color: ${theme.colors.text2};
+  display: flex;
+  align-items: center;
+`;
 
-// const StyledToastText = styled.div`
-//   width: 100%;
-// `;
+const StyledToastText = styled.div`
+  width: 100%;
+`;
 
-// const StyledToastIcon = styled.div`
-//   width: 40px;
-//   text-align: center;
-//   margin-right: 10px;
-// `;
+const StyledToastIcon = styled.div`
+  width: 40px;
+  text-align: center;
+  margin-right: 10px;
+`;
 
 const toastStyle = {
   color: theme.colors.text2,
@@ -57,9 +57,9 @@ export function AgoricNotificationsToast({iconSize = 28, text, type}: AgoricNoti
   }, [iconSize, type]);
 
   return (
-    <div style={toastStyle}>
-      {icon && <div style={toastTextStyle}>{icon}</div>}
-      <div style={toastIconStyle}>{text}</div>
-    </div>
+    <StyledToast style={toastStyle}>
+      {icon && <StyledToastIcon style={toastTextStyle}>{icon}</StyledToastIcon>}
+      <StyledToastText style={toastIconStyle}>{text}</StyledToastText>
+    </StyledToast>
   );
 }
