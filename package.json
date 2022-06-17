@@ -5,7 +5,7 @@
     "demo/*"
   ],
   "scripts": {
-    "build": "turbo run build --filter=@rbflabs/agoric-react-components",
+    "build": "turbo run build --filter=@rbflabs/*",
     "dev": "turbo run dev --no-cache --parallel --continue",
     "lint": "turbo run lint",
     "clean": "turbo run clean && rm -rf node_modules",
@@ -14,7 +14,7 @@
     "format:fix": "yarn format --write \"**/*.{js,jsx,ts,tsx,md}\"",
     "changeset-create": "changeset",
     "changeset-apply": "changeset version",
-    "release": "turbo run build && changeset publish"
+    "release": "turbo run build --filter=@rbflabs/* && changeset publish"
   },
   "devDependencies": {
     "@changesets/cli": "2.22.0",
