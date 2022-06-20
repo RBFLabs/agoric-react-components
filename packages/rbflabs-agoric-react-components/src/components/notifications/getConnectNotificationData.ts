@@ -7,10 +7,12 @@ export function getConnectNotificationData(walletState: AgoricWalletState) {
     case AgoricWalletState.Locating:
     case AgoricWalletState.Idle:
       return {
+        autoClose: false,
         text: 'Connecting to your wallet...',
       };
     case AgoricWalletState.Approving:
       return {
+        autoClose: false,
         text: 'Approve dApp in your wallet...',
       };
     case AgoricWalletState.Bridged:
