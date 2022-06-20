@@ -22,11 +22,11 @@ For more detail check the Agoric  [documentation](https://agoric.com/documentati
 
 ## Run the app 
 
-Make sure you are in the root of `demo` folder at the start of each of the following steps:
+In all of the following `<github-root>` is the directory with the clone of this repository. 
 
-### 1. Run local Agoric chain 
-- Open terminal #1 and run
-- `cd demo/agoric`
+### 1. Run the local Agoric chain 
+- Open terminal #1
+- `cd <github-root>/demo/agoric`
 - `agoric install`
 - `agoric start --reset`
 
@@ -37,13 +37,13 @@ Deployed Wallet!
 is printed out.
 
 ### 2. Open Agoric wallet in your browser
-- When the chain is running, open terminal #2 and run
-- `cd demo/agoric`
+- When the chain is running, open terminal #2
+- `cd <github-root>/demo/agoric`
 - `agoric open`
 
 This will open up a new browser tab with the Agoric wallet.
 
-### 3. Deploy contract
+### 3. Deploy contract (in the same terminal)
 - `agoric deploy contract/deploy.js`
 
 After successful completion, the deployment script should print out a message that looks like the following:
@@ -58,10 +58,10 @@ After successful completion, the deployment script should print out a message th
 writing .../demo/app-js/src/dAppConstants.mjs
 ```
 
-
 ### 4. Run React app
-- Open terminal #3 and run
-- `cd demo/app-js` (now you should be at the root of all GitHub repo)
+- Open terminal #3
+-  `cd <github-root>`
+- `yarn dev` (without this step linked packages may fail to work)
+- `cd demo/app-js` 
 - `yarn`
 - `yarn dev`
-

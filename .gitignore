@@ -18,4 +18,4 @@ demo/agoric/_agstate/yarn-links/
 demo/agoric/_agstate/yarn-links/
 demo/agoric/_agstate/agoric-servers/dev
 
-demo/**/*MinterConstants.mjs
+demo/**/dAppConstants.mjs
