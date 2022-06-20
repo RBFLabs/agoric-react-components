@@ -22,7 +22,6 @@ test('deploy contract for testing', async (t) => {
   t.is(await E(moolaMinterInstallation).getBundle(), helloBundle);
 });
 
-
 test('mint me 80 moola', async (t) => {
   const { admin: fakeVatAdmin } = makeFakeVatAdmin();
   const { zoeService: zoe } = makeZoeKit(fakeVatAdmin);

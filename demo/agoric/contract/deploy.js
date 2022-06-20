@@ -151,9 +151,7 @@ const deployContract = async (homePromise, { pathResolve }) => {
     TOKEN_BRAND_BOARD_ID,
     INVITE_BRAND_BOARD_ID,
   };
-  const defaultsFile1 = pathResolve(
-    `../../app-js/src/dAppConstants.mjs`,
-  );
+  const defaultsFile1 = pathResolve(`../../app-js/src/dAppConstants.mjs`);
 
   console.log('writing', defaultsFile1);
 

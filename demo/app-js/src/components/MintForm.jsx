@@ -1,14 +1,14 @@
 /* global harden */
-import React, { useState, useEffect } from 'react';
-import { E } from '@agoric/eventual-send';
-import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
+import React, {useState, useEffect} from 'react';
+import {E} from '@agoric/eventual-send';
+import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
 import appConstants from '../dAppConstants.mjs';
 
 const MintForm = () => {
   const [amount, setAmount] = useState(0);
   const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
-  const { purses, zoe, board, walletBridge } = useAgoricWalletContext();
+  const {purses, zoe, board, walletBridge} = useAgoricWalletContext();
 
   useEffect(() => {
     E(walletBridge).suggestIssuer('Moola', appConstants.TOKEN_ISSUER_BOARD_ID);
@@ -19,7 +19,7 @@ const MintForm = () => {
   useEffect(() => {
     const tokenPurse = purses.find(
       // Does the purse's brand match our token brand?
-      ({ brandBoardId }) => brandBoardId === appConstants.TOKEN_BRAND_BOARD_ID
+      ({brandBoardId}) => brandBoardId === appConstants.TOKEN_BRAND_BOARD_ID
     );
     if (tokenPurse && tokenPurse.pursePetname) {
       // If we got a petname for that purse, use it in the offers we create.

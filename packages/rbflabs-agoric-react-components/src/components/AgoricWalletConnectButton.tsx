@@ -138,6 +138,7 @@ const AgoricWalletConnectButton = (props: React.HTMLProps<HTMLButtonElement>) =>
   }, [walletState, connectWallet]);
 
   return (
+    // eslint-disable-next-line react/prop-types
     <Button disabled={disabled} onClick={onClick} className={props.className}>
       {loading && <Loader size={18} color={theme.colors.text2} />}
       {text}
