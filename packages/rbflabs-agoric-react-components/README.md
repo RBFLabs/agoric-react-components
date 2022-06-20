@@ -16,7 +16,7 @@ yarn add @rbflabs/agoric-react-components
 
 ## Usage
 
-You always have to use `AgoricwalletProvider` in order to use other components from this library. 
+You always have to use `AgoricwalletProvider` in order to use other components from this library.
 
 Here we use it in `index.jsx` file. You can use it elsewhere too, but make sure that all other `@rbflabs/agoric-react-components` are wrapper with `AgoricWalletProvider`.
 
@@ -37,6 +37,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 <br/>
 
 ## Components
+
 - [AgoricWalletProvider](#agoricwalletprovider)
 - [AgoricWalletConnectButton](#agoricwalletconnectbutton)
 - [AgoricNotifications](#agoricnotifications)
@@ -113,7 +114,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 ### AgoricWalletConnectButton
 
-Button that connects to your Agoric wallet. Simply import it and place it wherever in your dApp. 
+Button that connects to your Agoric wallet. Simply import it and place it wherever in your dApp.
 
 ```tsx:demo/app-js/src/main.jsx
 import React from 'react';
@@ -152,4 +153,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React>
 );
 ```
-

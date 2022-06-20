@@ -1,16 +1,16 @@
 # @rbflabs/agoric-react-components Monorepo
 
 This monorepo contains:
+
 - [Reusable React components](https://github.com/RBFLabs/agoric-react-components/tree/components-docs-update/packages/rbflabs-agoric-react-components) deployed as npm package
 - [Demo React App](https://github.com/RBFLabs/agoric-react-components/tree/main/demo) using these components
-  
+
 ## Getting started
 
 - `git clone https://github.com/RBFLabs/agoric-react-components.git`
 - `cd agoric-react-components`
 - Run the Demo App - [instructions here](https://github.com/RBFLabs/agoric-react-components/tree/main/demo)
 - For components reference [go here](https://github.com/RBFLabs/agoric-react-components/tree/components-docs-update/packages/rbflabs-agoric-react-components)
-
 
 ## Useful Commands
 
