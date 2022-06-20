@@ -38,7 +38,7 @@ const installBundle = async (pathResolve, zoe, board) => {
   // and install it on Zoe. This returns an installationHandle, an
   // opaque, unforgeable identifier for our contract code that we can
   // reuse again and again to create new, live contract instances.
-  const bundle = await bundleSource(pathResolve(`./src/contract-solution.js`));
+  const bundle = await bundleSource(pathResolve(`./src/contract.js`));
   const installation = await E(zoe).install(bundle);
 
   const { publicFacet, instance } = await E(zoe).startInstance(installation);
@@ -151,9 +151,7 @@ const deployContract = async (homePromise, { pathResolve }) => {
     TOKEN_BRAND_BOARD_ID,
     INVITE_BRAND_BOARD_ID,
   };
-  const defaultsFile1 = pathResolve(
-    `../../app-js/src/moolaMinterConstants.mjs`,
-  );
+  const defaultsFile1 = pathResolve(`../../app-js/src/dAppConstants.mjs`);
 
   console.log('writing', defaultsFile1);
 

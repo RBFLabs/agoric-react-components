@@ -20,7 +20,7 @@ const OfferMonitor = () => {
         <li>Proposed: {proposedOffers.length}</li>
         <li>Completed: {completedOffers.length}</li>
       </ul>
-    <hr />
+      <hr />
       <ul>
         {allOffers.map(offer => (
           <li key={offer.id}>
