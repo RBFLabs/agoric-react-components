@@ -1,11 +1,16 @@
-# @rbflabs/agoric-react-components monorepo
+# @rbflabs/agoric-react-components Monorepo
 
-This repo contains components library and demo app using these components.
+This monorepo contains:
+
+- [Reusable React components](https://github.com/RBFLabs/agoric-react-components/tree/components-docs-update/packages/rbflabs-agoric-react-components) deployed as npm package
+- [Demo React App](https://github.com/RBFLabs/agoric-react-components/tree/main/demo) using these components
 
 ## Getting started
 
 - `git clone https://github.com/RBFLabs/agoric-react-components.git`
 - `cd agoric-react-components`
+- Run the Demo App - [instructions here](https://github.com/RBFLabs/agoric-react-components/tree/main/demo)
+- For components reference [go here](https://github.com/RBFLabs/agoric-react-components/tree/components-docs-update/packages/rbflabs-agoric-react-components)
 
 ## Useful Commands
 
@@ -14,61 +19,6 @@ This repo contains components library and demo app using these components.
 - `yarn lint` - Lint all packages
 - `yarn changeset` - Generate a changeset
 - `yarn clean` - Clean up all `node_modules` and `dist` folders (runs each package's clean script)
-
-## Components List
-
-The library contains of the following components:
-
-- `AgoricWalletProvider`
-- `AgoricNotifications`
-- `AgoricWalletConnectButton`
-
-## Components Usage
-
-Use Agoric wallet provider in your app like this (`main.jsx` file):
-
-```tsx:demo/app-js/src/main.jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import {AgoricNotifications, AgoricWalletProvider, AgoricWalletConnectButton} from '@rbflabs/agoric-react-components';
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
-    <AgoricWalletProvider dappName="agoric-dapp" autoConnect={false}>
-      <AgoricNotifications groups={['connect', 'offer']} />
-      <AgoricWalletConnectButton />
-      Hello, I am Agoric React App!
-    </AgoricWalletProvider>
-  </React.StrictMode>
-);
-```
-
-`AgoricWalletProvider` gives you multiple props you can access using `useAgoricWalletContext` hook.
-
-```tsx:demo/app-js/src/main.jsx
-import React from 'react';
-import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
-
-const SomeComponent = () => {
-  const {
-    autoConnect,
-    approved,
-    board,
-    dappName,
-    offers,
-    purses,
-    walletBridge,
-    walletConnected,
-    walletConnection,
-    walletState,
-    zoe,
-    connectWallet, // function
-    resetWalletConnection // function
-    } = useAgoricWalletContext();
-
-    return { ...}
-}
-```
 
 ## Versioning & Publishing Packages
 

@@ -24,6 +24,8 @@ For more detail check the Agoric [documentation](https://agoric.com/documentatio
 
 In all of the following `<github-root>` is the directory with the clone of this repository.
 
+Make sure you are running Node 16 (you can use [nvm](https://github.com/nvm-sh/nvm) to switch between different Node versions).
+
 ### 1. Run the local Agoric chain
 
 - Open terminal #1
