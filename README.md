@@ -2,7 +2,7 @@
 
 This monorepo contains:
 
-- [Reusable React components](https://github.com/RBFLabs/agoric-react-components/tree/components-docs-update/packages/rbflabs-agoric-react-components) deployed as npm package
+- [Reusable React components](https://github.com/RBFLabs/agoric-react-components/tree/main/packages/rbflabs-agoric-react-components) deployed as npm package
 - [Demo React App](https://github.com/RBFLabs/agoric-react-components/tree/main/demo) using these components
 
 ## Getting started
