@@ -1,5 +1,6 @@
 {
   "name": "example",
+  "private": true,
   "version": "1.0.0",
   "description": "Example React app to test Agoric components",
   "main": "index.js",
