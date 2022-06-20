@@ -75,17 +75,21 @@ const Button = styled.button`
   }
 `;
 
-interface ButtonProps {
+interface ButtonComputedProps {
   disabled: boolean;
   loading: boolean;
   text: string;
   onClick: (() => void) | undefined;
 }
 
-const AgoricWalletConnectButton = (props: React.HTMLProps<HTMLButtonElement>) => {
+interface ButtonComponentProps {
+  className: string;
+}
+
+const AgoricWalletConnectButton = ({className}: ButtonComponentProps) => {
   const {walletState, connectWallet} = useAgoricWalletContext();
 
-  const {disabled, loading, onClick, text} = useMemo((): ButtonProps => {
+  const {disabled, loading, onClick, text} = useMemo((): ButtonComputedProps => {
     switch (walletState) {
       case AgoricWalletState.Idle:
         return {
@@ -138,8 +142,7 @@ const AgoricWalletConnectButton = (props: React.HTMLProps<HTMLButtonElement>) =>
   }, [walletState, connectWallet]);
 
   return (
-    // eslint-disable-next-line react/prop-types
-    <Button disabled={disabled} onClick={onClick} className={props.className}>
+    <Button disabled={disabled} onClick={onClick} className={className}>
       {loading && <Loader size={18} color={theme.colors.text2} />}
       {text}
     </Button>
