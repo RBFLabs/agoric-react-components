@@ -10,8 +10,6 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf build"
   },
   "dependencies": {
-    "@bigstair/core": "*",
-    "@bigstair/map": "*",
     "@endo/init": "^0.5.42",
     "@rbflabs/agoric-react-components": "*",
     "jest": "^28.1.1",

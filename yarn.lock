@@ -1171,16 +1171,6 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@bigstair/core@*":
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/@bigstair/core/-/core-1.0.6.tgz#e29333a06e76f96a69e7a15ee6fdbdac9de15dae"
-  integrity sha512-351VKXyOXZdUPVBAAQX2HOuXsLvp6MiHL9ZwaC2Mxf3rhBJCkasAZaBeIDDqCjPrlA3fi+2yD05WiToRXqWHGg==
-
-"@bigstair/map@*":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@bigstair/map/-/map-1.0.0.tgz#9d1ee38f9028ccce42f395aebd18bb4fd3c75265"
-  integrity sha512-5vY2isx2S+63918Q57kHvDPFssVS8QToqM0N0xVDC1QUeKOzMotNgOcRWACYCNk1O/JjRKCQuC7OTDoKKXSjnw==
-
 "@changesets/apply-release-plan@^6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@changesets/apply-release-plan/-/apply-release-plan-6.0.0.tgz#6c663ff99d919bba3902343d76c35cbbbb046520"
