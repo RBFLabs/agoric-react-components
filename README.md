@@ -58,3 +58,8 @@ To publish packages to a private npm organization scope, **remove** the followin
 -  "access": "public"
 - },
 ```
+
+## Contributing
+
+If you are about to contribute to this project for the very first time, make sure to read the [contributing guidelines](https://github.com/RBFLabs/agoric-react-components/blob/main/CONTRIBUTING.md).
+You will make it easier for both yourself and maintainers of this project.
