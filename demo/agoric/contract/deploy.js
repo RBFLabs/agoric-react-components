@@ -151,9 +151,13 @@ const deployContract = async (homePromise, { pathResolve }) => {
     TOKEN_BRAND_BOARD_ID,
     INVITE_BRAND_BOARD_ID,
   };
-  const defaultsFile1 = pathResolve(`../../app-js/src/dAppConstants.mjs`);
+  const defaultsFile1 = pathResolve(`../../app-js-vite/src/dAppConstants.mjs`);
+  const defaultsFile2 = pathResolve(`../../app-ts-vite/src/dAppConstants.mjs`);
+  const defaultsFile3 = pathResolve(`../../app-ts-cra/src/dAppConstants.mjs`);
 
-  console.log('writing', defaultsFile1);
+  console.log('#1 writing', defaultsFile1);
+  console.log('#2 writing', defaultsFile2);
+  console.log('#3 writing', defaultsFile3);
 
   const defaultsContents = `\
 // GENERATED FROM ${pathResolve('./deploy.js')}
@@ -161,6 +165,8 @@ export default ${JSON.stringify(dappConstants, undefined, 2)};
 `;
 
   await fs.promises.writeFile(defaultsFile1, defaultsContents);
+  await fs.promises.writeFile(defaultsFile2, defaultsContents);
+  await fs.promises.writeFile(defaultsFile3, defaultsContents);
 };
 
 export default deployContract;
