@@ -1,5 +1,11 @@
 # @rbflabs/agoric-react-components
 
+## 0.0.21
+
+### Patch Changes
+
+- 2363683: AgoricWalletProvider type changes
+
 ## 0.0.20
 
 ### Patch Changes
