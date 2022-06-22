@@ -12,12 +12,13 @@ export default defineConfig({
       fileName: format => `@rbflabs/agoric-react-components.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components'],
+      external: ['react', 'react-dom', 'styled-components', '@agoric/web-components'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
           'styled-components': 'styled',
+          '@agoric/web-components': 'makeReactAgoricWalletConnection',
         },
       },
     },

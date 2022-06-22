@@ -1,5 +1,5 @@
 {
-  "name": "app-vite-js",
+  "name": "app-js-vite",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -10,6 +10,7 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf build"
   },
   "dependencies": {
+    "@agoric/ui-components": "^0.2.33",
     "@endo/init": "^0.5.42",
     "@rbflabs/agoric-react-components": "*",
     "jest": "^28.1.1",

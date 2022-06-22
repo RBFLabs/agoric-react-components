@@ -3,6 +3,7 @@ import {AgoricWalletConnectButton, useAgoricWalletContext} from '@rbflabs/agoric
 import OfferMonitor from './components/OfferMonitor';
 import PurseMonitor from './components/PurseMonitor';
 import MintForm from './components/MintForm';
+// import { NatAmountInput } from '@agoric/ui-components';
 
 function App() {
   const {walletConnected, purses, walletState} = useAgoricWalletContext();
@@ -10,7 +11,8 @@ function App() {
   let content;
 
   if (!walletConnected) {
-    content = <h2>Hello, welcome to Agoric React Demo. Connect your wallet to continue!</h2>;
+    content = 
+    <h2>Hello, welcome to Agoric React Demo. Connect your wallet to continue!</h2>;
   } else if (walletConnected && !purses) {
     content = 'Loading purses...';
   } else if (walletConnected && purses && purses.length === 0) {
@@ -27,6 +29,7 @@ function App() {
 
   return (
     <div className="App">
+      <h3>TypeScript Vite App</h3>
       <div className="App-header">
         <div id="WalletState">Wallet State: {walletState || 'none'}</div>
         <AgoricWalletConnectButton />

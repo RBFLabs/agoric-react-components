@@ -13,7 +13,7 @@ const AgoricWalletConnection = makeReactAgoricWalletConnection(React);
 interface Props {
   dappName: string;
   autoConnect: boolean;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
   onWalletState?: (event: any) => void; // function that performs something on wallet state change
   onPursesChange?: (purses: any) => void; // function that performs something when purses change
   onOffersChange?: (offers: any) => void; // function that performs something when offers change
