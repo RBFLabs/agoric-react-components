@@ -1,5 +1,11 @@
 # @rbflabs/agoric-react-components
 
+## 0.0.20
+
+### Patch Changes
+
+- 0b6bde9: Documentation updated, lint fixes, notifications bug fix
+
 ## 0.0.19
 
 ### Patch Changes
