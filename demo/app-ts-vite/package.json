@@ -10,7 +10,9 @@
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf build"
   },
   "dependencies": {
+    "@agoric/ui-components": "^0.2.33",
     "@endo/init": "^0.5.42",
+    "@material-ui/core": "^4.12.4",
     "@rbflabs/agoric-react-components": "*",
     "react": "18.0.0",
     "react-dom": "18.0.0"

@@ -18,7 +18,6 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
           'styled-components': 'styled',
-          '@agoric/web-components': 'makeReactAgoricWalletConnection',
         },
       },
     },

@@ -1,14 +1,18 @@
 /* global harden */
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useMemo} from 'react';
 import {E} from '@agoric/eventual-send';
 import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
 import appConstants from '../dAppConstants.mjs';
+import {makeNatAmountInput} from '@agoric/ui-components';
+import { TextField } from '@material-ui/core';
 
 const MintForm = () => {
-  const [amount, setAmount] = useState(0);
+  const [amount, setAmount] = useState(0n);
   const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
   const {purses, zoe, board, walletBridge} = useAgoricWalletContext();
+
+  const NatAmountInput = useMemo(() => makeNatAmountInput({React, TextField: TextField}), []);
 
   useEffect(() => {
     E(walletBridge).suggestIssuer('Moola', appConstants.TOKEN_ISSUER_BOARD_ID);
@@ -17,14 +21,16 @@ const MintForm = () => {
   }, [walletBridge]);
 
   useEffect(() => {
-    const tokenPurse = purses.find(
-      // Does the purse's brand match our token brand?
-      ({brandBoardId}) => brandBoardId === appConstants.TOKEN_BRAND_BOARD_ID
-    );
-    if (tokenPurse && tokenPurse.pursePetname) {
-      // If we got a petname for that purse, use it in the offers we create.
-      console.log(`found purse name ${tokenPurse.pursePetname}`);
-      setMoolaPursePetname(tokenPurse.pursePetname);
+    if (purses) {
+      const tokenPurse = purses.find(
+        // Does the purse's brand match our token brand?
+        ({brandBoardId}) => brandBoardId === appConstants.TOKEN_BRAND_BOARD_ID
+      );
+      if (tokenPurse && tokenPurse.pursePetname) {
+        // If we got a petname for that purse, use it in the offers we create.
+        console.log(`found purse name ${tokenPurse.pursePetname}`);
+        setMoolaPursePetname(tokenPurse.pursePetname);
+      }
     }
   }, [purses]);
 
@@ -55,10 +61,12 @@ const MintForm = () => {
   return (
     <div className="MintForm">
       <label>Amount of Moola to mint:</label>
-      <input type="text" pattern="[0-9]*" onChange={ev => setAmount(parseInt(ev.target.value) || 0)} value={amount} />
+      {/* <input type="text" pattern="[0-9]*" onChange={ev => setAmount(parseInt(ev.target.value) || 0)} value={amount} /> */}
+      <NatAmountInput value={amount} onChange={(ev:any) => setAmount(ev)} decimalPlaces={0}/>
       <button onClick={() => mintSomeMoola()}>Get some Moola!</button>
     </div>
   );
 };
+
 
 export default MintForm;
