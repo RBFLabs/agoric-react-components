@@ -13,6 +13,11 @@
   "files": [
     "dist/**"
   ],
+  "keywords": [
+    "react",
+    "react-component",
+    "agoric"
+  ],
   "scripts": {
     "build": "tsup src/index.tsx --format esm,cjs --dts --external react",
     "dev": "tsup src/index.tsx --format esm,cjs --watch --dts --external react",

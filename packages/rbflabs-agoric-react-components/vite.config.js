@@ -12,7 +12,16 @@ export default defineConfig({
       fileName: format => `@rbflabs/agoric-react-components.${format}.js`,
     },
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components', '@agoric/web-components'],
+      external: [
+        'react',
+        'react-dom',
+        'styled-components',
+        'react-icons',
+        '@agoric/web-components',
+        '@agoric/notifier',
+        '@agoric/eventual-send',
+        'react-toastify',
+      ],
       output: {
         globals: {
           react: 'React',
