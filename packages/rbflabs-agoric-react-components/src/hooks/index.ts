@@ -1,3 +1,2 @@
-import useAgoricWalletContext from './useAgoricWalletContext';
-
-export {useAgoricWalletContext};
+export { useSetState } from './use-set-state';
+export { usePrevious } from './use-previous';

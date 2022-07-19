@@ -34,6 +34,7 @@ module.exports = {
     'function-paren-newline': 'off',
     'react/jsx-curly-newline': 'off',
     'no-unused-expressions': 'off',
+    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     camelcase: 'off',
     'react/jsx-indent': 'off',
     'react/jsx-wrap-multilines': 'off',

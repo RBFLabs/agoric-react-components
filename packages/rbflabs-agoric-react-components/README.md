@@ -36,21 +36,20 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 
 <br/>
 
-## Components
+## Components and hooks
 
 - [AgoricWalletProvider](#agoricwalletprovider)
-- [AgoricWalletConnectButton](#agoricwalletconnectbutton)
-- [AgoricNotifications](#agoricnotifications)
+- [useAgoricWalletNotifications](#agoricnotifications)
 
 <br/>
 
 ### AgoricWalletProvider
 
-`AgoricWalletProvider` gives you multiple props that you can access using `useAgoricWalletContext` hook (don't forget to wrap your component with `AgoricWalletProvider`).
+`AgoricWalletProvider` gives you multiple props that you can access using `useAgoricWallet` hook (don't forget to wrap your component with `AgoricWalletProvider`).
 
 ```tsx:demo/app-js/src/main.jsx
 import React from 'react';
-import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
+import { useAgoricWallet } from '@rbflabs/agoric-react-components';
 
 // Wrap <SomeComponent/> with <AgoricWalletProvider /> in parent component
 const SomeComponent = () => {
@@ -68,7 +67,7 @@ const SomeComponent = () => {
     zoe, // Agoric ZOE instance
     connectWallet, // function that connects to your wallet
     resetWalletConnection // function that resets wallet connection
-    } = useAgoricWalletContext();
+    } = useAgoricWallet();
 
     return (
       <div>
@@ -110,46 +109,23 @@ ReactDOM.createRoot(document.getElementById('root')).render(
 );
 ```
 
-<br/>
-
-### AgoricWalletConnectButton
-
-Button that connects to your Agoric wallet. Simply import it and place it wherever in your dApp.
-
-```tsx:demo/app-js/src/main.jsx
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { AgoricWalletProvider, AgoricWalletConnectButton } from '@rbflabs/agoric-react-components';
-
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React>
-    <AgoricWalletProvider dappName="agoric-dapp" autoConnect={false}>
-      <AgoricWalletConnectButton />
-      Hello, I am Agoric React App!
-    </AgoricWalletProvider>
-  </React>
-);
-```
-
-<br/>
-
 ### AgoricNotifications
 
-This component notifies you either when wallet connection state or wallet offers change.
+This hook gives you updates in form of a notification object for you to plug in your notification system (don't forget to wrap your component with `AgoricWalletProvider`).
 
-You can choose which notifications should show up by providing `group` prop (the default setting is that all notifications are shown).
+You can choose which notifications should show up by providing `group` parameter (the default setting is that all notifications are shown).
 
 ```tsx:demo/app-js/src/main.jsx
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { AgoricNotifications, AgoricWalletProvider, AgoricWalletConnectButton } from '@rbflabs/agoric-react-components';
+import { useAgoricWalletNotifications } from '@rbflabs/agoric-react-components';
 
-ReactDOM.createRoot(document.getElementById('root')).render(
-  <React>
-    <AgoricWalletProvider dappName="agoric-dapp" autoConnect={false}>
-      <AgoricNotifications groups={['connect', 'offer']} />
-      <AgoricWalletConnectButton /> {/* When clicked, a notification will show up in the UI*/}
-    </AgoricWalletProvider>
-  </React>
-);
+function SomeComponent() {
+  const handleNotification = (notification: AgoricWalletNotification) => {
+    const { id, title, message, loading, severity } = notification;
+    // handle your notification
+  };
+
+  useAgoricWalletNotification(handleNotification, ['connect', 'offer', 'purse']);
+}
 ```
