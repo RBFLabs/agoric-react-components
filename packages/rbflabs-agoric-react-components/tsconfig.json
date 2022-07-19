@@ -1,5 +1,5 @@
 {
-  "extends": "ts-config-rbflabs/react-library.json",
+  "extends": "tsconfig-rbflabs/react-library.json",
   "include": ["."],
   "exclude": ["dist", "build", "node_modules"]
 }

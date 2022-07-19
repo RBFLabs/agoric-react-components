@@ -1,8 +1,8 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
+import styled, { keyframes } from 'styled-components';
 import useAgoricWalletContext from '../hooks/useAgoricWalletContext';
-import {AgoricWalletState} from '../model';
+import { AgoricWalletState } from '../model';
 import theme from '../theme';
-import styled, {keyframes} from 'styled-components';
 
 const SPIN = keyframes`
     0% { 
@@ -13,7 +13,7 @@ const SPIN = keyframes`
     }
 `;
 
-const Wrapper = styled.div<{size: number}>`
+const Wrapper = styled.div<{ size: number }>`
   position: relative;
   width: ${props => `${props.size}px`};
   height: ${props => `${props.size}px`};
@@ -23,7 +23,7 @@ const Wrapper = styled.div<{size: number}>`
   margin-right: 8px;
 `;
 
-const StyledLoader = styled.div<{size: number; strokeWidth: number}>`
+const StyledLoader = styled.div<{ size: number; strokeWidth: number }>`
   box-sizing: border-box;
   position: relative;
   text-indent: -9999em;
@@ -48,7 +48,13 @@ interface LoaderProps {
   color?: string;
 }
 
-const Loader = ({className, size = 20, strokeWidth = 2, color = theme.colors.text1, ...rest}: LoaderProps) => (
+const Loader = ({
+  className,
+  size = 20,
+  strokeWidth = 2,
+  color = theme.colors.text1,
+  ...rest
+}: LoaderProps) => (
   <Wrapper className={className} size={size} {...rest}>
     <StyledLoader size={size} strokeWidth={strokeWidth} color={color} />
   </Wrapper>
@@ -86,10 +92,10 @@ interface ButtonComponentProps {
   className: string;
 }
 
-const AgoricWalletConnectButton = ({className}: ButtonComponentProps) => {
-  const {walletState, connectWallet} = useAgoricWalletContext();
+const AgoricWalletConnectButton = ({ className }: ButtonComponentProps) => {
+  const { walletState, connectWallet } = useAgoricWalletContext();
 
-  const {disabled, loading, onClick, text} = useMemo((): ButtonComputedProps => {
+  const { disabled, loading, onClick, text } = useMemo((): ButtonComputedProps => {
     switch (walletState) {
       case AgoricWalletState.Idle:
         return {
@@ -149,4 +155,4 @@ const AgoricWalletConnectButton = ({className}: ButtonComponentProps) => {
   );
 };
 
-export {AgoricWalletConnectButton};
+export { AgoricWalletConnectButton };

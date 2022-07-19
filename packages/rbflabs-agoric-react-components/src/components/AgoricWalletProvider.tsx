@@ -1,12 +1,10 @@
-/// <reference types="../types/agoric"/>
-import {E} from '@agoric/eventual-send';
+import { E } from '@agoric/eventual-send';
 import React from 'react';
-import WalletContext from '../contexts/WalletContext';
-import {AgoricState, AgoricWalletState} from '../model';
-
 // Import does not work. Missing d.ts file
-import {observeNotifier} from '@agoric/notifier';
-import {makeReactAgoricWalletConnection} from '@agoric/web-components/react';
+import { observeNotifier } from '@agoric/notifier';
+import { makeReactAgoricWalletConnection } from '@agoric/web-components/react';
+import WalletContext from '../contexts/WalletContext';
+import { AgoricState, AgoricWalletState } from '../model';
 
 const AgoricWalletConnection = makeReactAgoricWalletConnection(React);
 
@@ -48,11 +46,11 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
   };
 
   addWalletConnection = () => {
-    this.setState({showWalletConnection: true});
+    this.setState({ showWalletConnection: true });
   };
 
   resetWalletConnection = () => {
-    const {walletConnection} = this.state;
+    const { walletConnection } = this.state;
     if (walletConnection) (E(walletConnection) as any).reset();
   };
 
@@ -64,18 +62,18 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
     // You should reconstruct all state here.
     const zoe = await E(walletBridge).getZoe();
     const board = await E(walletBridge).getBoard();
-    this.setState({zoe, board, walletBridge, walletConnection});
+    this.setState({ zoe, board, walletBridge, walletConnection });
 
     observeNotifier(E(walletBridge).getPursesNotifier(), {
       updateState: async (purses: Array<any>) => {
-        this.setState({purses});
+        this.setState({ purses });
         if (this.props.onPursesChange) this.props.onPursesChange(purses);
       },
     });
     // https://agoric.com/documentation/guides/js-programming/notifiers.html#subscription-example
     observeNotifier(E(walletBridge).getOffersNotifier(), {
       updateState: (offers: Array<any>) => {
-        this.setState({offers});
+        this.setState({ offers });
         if (this.props.onOffersChange) this.props.onOffersChange(offers);
       },
       // TODO test out these methods and find out how to use them
@@ -91,8 +89,8 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
   };
 
   onWalletState = async (ev: any) => {
-    const {walletConnection, state} = ev.detail;
-    this.setState({walletState: state});
+    const { walletConnection, state } = ev.detail;
+    this.setState({ walletState: state });
     switch (state) {
       case AgoricWalletState.Idle: {
         console.log('Connection with wallet established, initializing dApp!');
@@ -101,11 +99,11 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
         break;
       }
       case AgoricWalletState.Approving: {
-        this.setState({approved: false});
+        this.setState({ approved: false });
         break;
       }
       case AgoricWalletState.Bridged: {
-        this.setState({approved: true});
+        this.setState({ approved: true });
         break;
       }
       case AgoricWalletState.Error: {
@@ -146,7 +144,7 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
       >
         <div>{this.props.children}</div>
         {this.state.showWalletConnection ? (
-          <AgoricWalletConnection onState={this.onWalletState} style={{display: 'none'}} />
+          <AgoricWalletConnection onState={this.onWalletState} style={{ display: 'none' }} />
         ) : null}
       </WalletContext.Provider>
     );
@@ -164,4 +162,4 @@ class AgoricWalletProvider extends React.Component<Props, AgoricState> {
   };
 }
 
-export {AgoricWalletProvider};
+export { AgoricWalletProvider };
