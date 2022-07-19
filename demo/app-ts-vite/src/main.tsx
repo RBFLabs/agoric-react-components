@@ -3,7 +3,7 @@ import './installSesLockdown';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import {AgoricNotifications, AgoricWalletProvider} from '@rbflabs/agoric-react-components';
+import { AgoricNotifications, AgoricWalletProvider } from '@rbflabs/agoric-react-components';
 
 import './index.css';
 

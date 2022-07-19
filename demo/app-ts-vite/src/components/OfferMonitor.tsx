@@ -1,5 +1,5 @@
 import React from 'react';
-import {useOffers} from '../hooks';
+import { useOffers } from '../hooks';
 
 const OfferMonitor = () => {
   const allOffers = useOffers('all');
@@ -9,7 +9,14 @@ const OfferMonitor = () => {
   const completedOffers = useOffers('completed');
   const proposedOffers = useOffers('proposed');
 
-  if (!allOffers || !acceptedOffers || !declinedOffers || !pendingOffers || !proposedOffers || !completedOffers)
+  if (
+    !allOffers ||
+    !acceptedOffers ||
+    !declinedOffers ||
+    !pendingOffers ||
+    !proposedOffers ||
+    !completedOffers
+  )
     return null;
 
   return (

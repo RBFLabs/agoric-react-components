@@ -1,10 +1,10 @@
 import React from 'react';
-import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
 
 const PurseMonitor = () => {
-  const {purses} = useAgoricWalletContext();
+  const { purses } = useAgoricWalletContext();
 
-  if (!purses) return <></>
+  if (!purses) return <></>;
 
   return (
     <div className="Monitor">

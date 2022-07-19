@@ -1,9 +1,9 @@
-import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
 
 export const useOffers = (status: any) => {
-  const {offers} = useAgoricWalletContext();
+  const { offers } = useAgoricWalletContext();
 
-  if(!offers) return undefined
+  if (!offers) return undefined;
 
   switch (status) {
     case 'accepted':

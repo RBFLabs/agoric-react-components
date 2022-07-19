@@ -1,6 +1,6 @@
 // import './installSesLockdown';
-import "@endo/init"
-import 'ses'
+import '@endo/init';
+import 'ses';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -8,7 +8,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 // import {AgoricWalletProvider} from '@rbflabs/agoric-react-components';
-const {AgoricWalletProvider} = require('@rbflabs/agoric-react-components');
+const { AgoricWalletProvider } = require('@rbflabs/agoric-react-components');
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 root.render(

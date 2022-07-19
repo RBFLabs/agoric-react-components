@@ -1,5 +1,5 @@
 import React from 'react';
-import {useOffers} from '../hooks';
+import { useOffers } from '../hooks';
 
 const OfferMonitor = () => {
   const allOffers = useOffers();

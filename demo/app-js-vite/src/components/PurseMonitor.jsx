@@ -1,8 +1,8 @@
 import React from 'react';
-import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
 
 const PurseMonitor = () => {
-  const {purses} = useAgoricWalletContext();
+  const { purses } = useAgoricWalletContext();
 
   return (
     <div className="Monitor">

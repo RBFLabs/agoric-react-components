@@ -1,12 +1,15 @@
 import './App.css';
-import {AgoricWalletConnectButton, useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import {
+  AgoricWalletConnectButton,
+  useAgoricWalletContext,
+} from '@rbflabs/agoric-react-components';
 import OfferMonitor from './components/OfferMonitor';
 import PurseMonitor from './components/PurseMonitor';
 import MintForm from './components/MintForm';
 // import { NatAmountInput } from '@agoric/ui-components';
 
 function App() {
-  const {walletConnected, purses, walletState} = useAgoricWalletContext();
+  const { walletConnected, purses, walletState } = useAgoricWalletContext();
 
   let content;
 
