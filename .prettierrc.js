@@ -1,1 +1,1 @@
-module.exports = require('eslint-config-rbflabs/.prettierrc.js');
+module.exports = require('@rbflabs/eslint-config/.prettierrc.js');

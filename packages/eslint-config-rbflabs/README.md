@@ -1,11 +1,11 @@
-# eslint-config-rbflabs
+# @rbflabs/eslint-config
 
 ## Install
 
-`eslint-config-rbflabs` needs to be installed with all of it peerdependencies. In your project run:
+`@rbflabs/eslint-config` needs to be installed with all of it peerdependencies. In your project run:
 
 ```sh
-npx install-peerdeps --dev eslint-config-rbflabs
+npx install-peerdeps --dev @rbflabs/eslint-config
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ Create `.eslintrc.js` file:
 ```tsx
 module.exports = {
   // root: true // this might be needed for projects, where tsconfig and eslintrc are not in the root
-  extends: ['rbflabs'],
+  extends: ['@rbflabs'],
   parserOptions: {
     project: './tsconfig.json',
     // tsconfigRootDir: __dirname, // this might be needed for projects, where tsconfig and eslintrc are not in the root
@@ -31,7 +31,7 @@ module.exports = {
 Create `.prettierrc.js` file:
 
 ```tsx
-module.exports = require('eslint-config-rbflabs/.prettierrc.js');
+module.exports = require('@rbflabs/eslint-config/.prettierrc.js');
 ```
 
 - prettier still needs to be configured in your text editor of choice.
