@@ -1,16 +1,16 @@
 /* global harden */
 import React, {useState, useEffect, useMemo} from 'react';
 import {E} from '@agoric/eventual-send';
-import {useAgoricWalletContext} from '@rbflabs/agoric-react-components';
+import {useAgoricWallet} from '@rbflabs/agoric-react-components';
 import appConstants from '../dAppConstants.mjs';
 import {makeNatAmountInput} from '@agoric/ui-components';
-import { TextField } from '@material-ui/core';
+import {TextField} from '@material-ui/core';
 
 const MintForm = () => {
   const [amount, setAmount] = useState(0n);
   const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
-  const {purses, zoe, board, walletBridge} = useAgoricWalletContext();
+  const {purses, zoe, board, walletBridge} = useAgoricWallet();
 
   const NatAmountInput = useMemo(() => makeNatAmountInput({React, TextField: TextField}), []);
 
@@ -62,11 +62,10 @@ const MintForm = () => {
     <div className="MintForm">
       <label>Amount of Moola to mint:</label>
       {/* <input type="text" pattern="[0-9]*" onChange={ev => setAmount(parseInt(ev.target.value) || 0)} value={amount} /> */}
-      <NatAmountInput value={amount} onChange={(ev:any) => setAmount(ev)} decimalPlaces={0}/>
+      <NatAmountInput value={amount} onChange={(ev: any) => setAmount(ev)} decimalPlaces={0} />
       <button onClick={() => mintSomeMoola()}>Get some Moola!</button>
     </div>
   );
 };
-
 
 export default MintForm;
