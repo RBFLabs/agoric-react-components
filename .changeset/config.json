@@ -7,5 +7,5 @@
   "access": "public",
   "baseBranch": "main",
   "updateInternalDependencies": "patch",
-  "ignore": ["app-js-vite", "app-ts-vite", "app-ts-cra", "eslint-config-rbflabs", "ts-config-rbflabs"]
+  "ignore": ["app-js-vite", "app-ts-vite", "app-ts-cra", "tsconfig-rbflabs"]
 }

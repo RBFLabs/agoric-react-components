@@ -1,8 +1,8 @@
 /**
  * Provider
  */
-export { WalletProvider as AgoricWalletProvider } from './Wallet.provider';
-export type { WalletProviderProps as AgoricWalletProviderProps } from './Wallet.provider';
+export { WalletProvider as AgoricWalletProvider } from './WalletProvider';
+export type { WalletProviderProps as AgoricWalletProviderProps } from './WalletProvider';
 
 /**
  * Hooks

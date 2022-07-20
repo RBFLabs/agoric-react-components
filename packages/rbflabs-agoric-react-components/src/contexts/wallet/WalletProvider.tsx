@@ -5,7 +5,7 @@ import { makeReactAgoricWalletConnection } from '@agoric/web-components/react';
 import { useSetState } from '../../hooks';
 import { WalletState } from './types';
 import { isWalletState } from './utils/typeguards';
-import { WalletContext } from './Wallet.context';
+import { WalletContext } from './WalletContext';
 
 const AgoricWalletConnection = makeReactAgoricWalletConnection(React);
 

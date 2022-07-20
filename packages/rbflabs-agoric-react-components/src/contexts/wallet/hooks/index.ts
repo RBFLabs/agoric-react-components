@@ -1,2 +1,2 @@
-export { useWallet } from './use-wallet';
-export { useWalletNotifications } from './use-wallet-notifications/use-wallet-notifications';
+export { useWallet } from './useWallet';
+export { useWalletNotifications } from './useWalletNotifications/useWalletNotifications';

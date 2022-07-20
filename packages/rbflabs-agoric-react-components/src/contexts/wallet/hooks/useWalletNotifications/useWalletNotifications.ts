@@ -1,9 +1,8 @@
 import { useEffect, useRef } from 'react';
-import { randomUUID as uid } from 'crypto';
 import { usePrevious } from '../../../../hooks';
 import { keys } from '../../../../utils/object';
 import { WalletNotification, WalletNotificationGroup } from '../../types';
-import { useWallet } from '../use-wallet';
+import { useWallet } from '../useWallet';
 import { getConnectNotification, getOfferNotification, getUpdatedOffer } from './utils';
 
 function isSameNotification(a: WalletNotification, b?: WalletNotification) {
@@ -26,7 +25,7 @@ export function useWalletNotifications(
       return;
     }
     if (!connectNotificationId.current) {
-      connectNotificationId.current = uid();
+      connectNotificationId.current = window.crypto.randomUUID();
     }
     const notification = {
       ...getConnectNotification(walletState),
