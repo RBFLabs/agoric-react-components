@@ -29,7 +29,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "@rbflabs/eslint-config": "*",
     "prettier": "2.5.1",
-    "turbo": "1.2.12",
-    "short-unique-id": "^4.4.4"
+    "turbo": "1.2.12"
   }
 }
