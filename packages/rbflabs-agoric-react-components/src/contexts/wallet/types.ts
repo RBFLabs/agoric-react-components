@@ -1,14 +1,7 @@
 /**
  * Possible states taken from github
  * https://github.com/Agoric/agoric-sdk/blob/44c34cbdf936e86a8872622acb0e5c733f927f75/packages/web-components/src/states.js#L47 */
-export const walletStates = [
-  'idle',
-  'locating',
-  'connecting',
-  'bridged',
-  'approving',
-  'error',
-] as const;
+export const walletStates = ['idle', 'locating', 'connecting', 'bridged', 'approving', 'error'] as const;
 export type WalletState = typeof walletStates[number];
 
 export interface WalletNotification {

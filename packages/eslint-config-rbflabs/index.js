@@ -22,6 +22,7 @@ module.exports = {
     '@typescript-eslint/no-unused-expressions': 'off',
     '@typescript-eslint/no-redeclare': 'off',
     '@typescript-eslint/no-unused-vars': 'warn', // annoying during development
+    '@typescript-eslint/object-curly-spacing': 'off', // conflict with prettier bracketSpacing
     'react/prop-types': 'off',
     'react/jsx-no-bind': 'off',
     'react/function-component-definition': 'off',
@@ -34,7 +35,7 @@ module.exports = {
     'function-paren-newline': 'off',
     'react/jsx-curly-newline': 'off',
     'no-unused-expressions': 'off',
-    'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
+    'no-plusplus': ['error', {allowForLoopAfterthoughts: true}],
     camelcase: 'off',
     'react/jsx-indent': 'off',
     'react/jsx-wrap-multilines': 'off',

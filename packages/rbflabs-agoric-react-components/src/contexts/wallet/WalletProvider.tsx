@@ -1,11 +1,11 @@
-import { E } from '@agoric/eventual-send';
-import React, { useEffect } from 'react';
-import { observeNotifier } from '@agoric/notifier';
-import { makeReactAgoricWalletConnection } from '@agoric/web-components/react';
-import { useSetState } from '../../hooks';
-import { WalletState } from './types';
-import { isWalletState } from './utils/typeguards';
-import { WalletContext } from './WalletContext';
+import {E} from '@agoric/eventual-send';
+import React, {useEffect} from 'react';
+import {observeNotifier} from '@agoric/notifier';
+import {makeReactAgoricWalletConnection} from '@agoric/web-components/react';
+import {useSetState} from '../../hooks';
+import {WalletState} from './types';
+import {isWalletState} from './utils/typeguards';
+import {WalletContext} from './WalletContext';
 
 const AgoricWalletConnection = makeReactAgoricWalletConnection(React);
 
@@ -58,18 +58,18 @@ export function WalletProvider({
     // You should reconstruct all state here.
     const zoe = await E(walletBridge).getZoe();
     const board = await E(walletBridge).getBoard();
-    setState({ zoe, board, walletBridge, walletConnection });
+    setState({zoe, board, walletBridge, walletConnection});
 
     observeNotifier(E(walletBridge).getPursesNotifier(), {
       updateState: async (purses: Array<any>) => {
-        setState({ purses });
+        setState({purses});
         onPursesChange?.(purses);
       },
     });
     // https://agoric.com/documentation/guides/js-programming/notifiers.html#subscription-example
     observeNotifier(E(walletBridge).getOffersNotifier(), {
       updateState: (offers: Array<any>) => {
-        setState({ offers });
+        setState({offers});
         onOffersChange?.(offers);
       },
       // TODO test out these methods and find out how to use them
@@ -91,11 +91,11 @@ export function WalletProvider({
   };
 
   const onState = async (ev: any) => {
-    const { walletConnection, state: walletState } = ev.detail;
+    const {walletConnection, state: walletState} = ev.detail;
     if (!isWalletState(walletState)) {
       return;
     }
-    setState({ walletState });
+    setState({walletState});
     onWalletState?.(ev);
     switch (walletState) {
       case 'idle': {
@@ -104,11 +104,11 @@ export function WalletProvider({
         break;
       }
       case 'approving': {
-        setState({ approved: false });
+        setState({approved: false});
         break;
       }
       case 'bridged': {
-        setState({ approved: true });
+        setState({approved: true});
         break;
       }
       case 'error': {
@@ -126,7 +126,7 @@ export function WalletProvider({
 
   useEffect(() => {
     if (autoConnect) {
-      setState({ showWalletConnection: true });
+      setState({showWalletConnection: true});
     }
   }, [autoConnect]);
 
@@ -144,14 +144,12 @@ export function WalletProvider({
         walletConnection: state.walletConnection,
         walletConnected: state.walletState === 'bridged',
         walletBridge: state.walletBridge,
-        connectWallet: () => setState({ showWalletConnection: true }),
+        connectWallet: () => setState({showWalletConnection: true}),
         resetWalletConnection,
       }}
     >
       {children}
-      {state.showWalletConnection && (
-        <AgoricWalletConnection onState={onState} style={{ display: 'none' }} />
-      )}
+      {state.showWalletConnection && <AgoricWalletConnection onState={onState} style={{display: 'none'}} />}
     </WalletContext.Provider>
   );
 }

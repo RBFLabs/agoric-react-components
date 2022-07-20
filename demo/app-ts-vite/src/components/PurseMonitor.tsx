@@ -1,8 +1,8 @@
 import React from 'react';
-import { useAgoricWallet } from '@rbflabs/agoric-react-components';
+import {useAgoricWallet} from '@rbflabs/agoric-react-components';
 
 const PurseMonitor = () => {
-  const { purses } = useAgoricWallet();
+  const {purses} = useAgoricWallet();
 
   if (!purses) return <></>;
 

@@ -1,5 +1,5 @@
 import './App.css';
-import { useAgoricWallet } from '@rbflabs/agoric-react-components';
+import {useAgoricWallet} from '@rbflabs/agoric-react-components';
 import AgoricWalletConnectButton from './components/AgoricWalletConnectButton';
 import OfferMonitor from './components/OfferMonitor';
 import PurseMonitor from './components/PurseMonitor';
@@ -7,7 +7,7 @@ import MintForm from './components/MintForm';
 // import { NatAmountInput } from '@agoric/ui-components';
 
 function App() {
-  const { walletConnected, purses, walletState } = useAgoricWallet();
+  const {walletConnected, purses, walletState} = useAgoricWallet();
 
   let content;
 

@@ -1,10 +1,10 @@
-import React, { useMemo } from 'react'
-import { useAgoricWallet } from '@rbflabs/agoric-react-components';
+import React, {useMemo} from 'react';
+import {useAgoricWallet} from '@rbflabs/agoric-react-components';
 
 const AgoricWalletConnectButton = () => {
-  const { connectWallet, walletState } = useAgoricWallet()
+  const {connectWallet, walletState} = useAgoricWallet();
 
-  const { disabled, children } = useMemo(() => {
+  const {disabled, children} = useMemo(() => {
     switch (walletState) {
       case 'locating':
       case 'connecting':
@@ -29,9 +29,13 @@ const AgoricWalletConnectButton = () => {
           children: 'Connect Wallet',
         };
     }
-  }, [walletState])
+  }, [walletState]);
 
-  return <button type="button" disabled={disabled} onClick={connectWallet}>{children}</button>
-}
+  return (
+    <button type="button" disabled={disabled} onClick={connectWallet}>
+      {children}
+    </button>
+  );
+};
 
-export default AgoricWalletConnectButton
+export default AgoricWalletConnectButton;

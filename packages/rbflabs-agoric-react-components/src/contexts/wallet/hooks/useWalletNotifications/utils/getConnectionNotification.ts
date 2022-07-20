@@ -1,4 +1,4 @@
-import { WalletNotification, WalletState } from '../../../types';
+import {WalletNotification, WalletState} from '../../../types';
 
 export function getConnectNotification(
   walletState: WalletState

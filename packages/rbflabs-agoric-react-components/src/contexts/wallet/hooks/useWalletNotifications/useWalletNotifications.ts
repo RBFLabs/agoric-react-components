@@ -1,9 +1,9 @@
-import { useEffect, useRef } from 'react';
-import { usePrevious } from '../../../../hooks';
-import { keys } from '../../../../utils/object';
-import { WalletNotification, WalletNotificationGroup } from '../../types';
-import { useWallet } from '../useWallet';
-import { getConnectNotification, getOfferNotification, getUpdatedOffer } from './utils';
+import {useEffect, useRef} from 'react';
+import {usePrevious} from '../../../../hooks';
+import {keys} from '../../../../utils/object';
+import {WalletNotification, WalletNotificationGroup} from '../../types';
+import {useWallet} from '../useWallet';
+import {getConnectNotification, getOfferNotification, getUpdatedOffer} from './utils';
 
 function isSameNotification(a: WalletNotification, b?: WalletNotification) {
   return b && keys(a).every(key => a[key] === b[key]);
@@ -13,7 +13,7 @@ export function useWalletNotifications(
   callback: (notification: WalletNotification) => void,
   groups: WalletNotificationGroup[] = ['connect', 'offer', 'purse']
 ) {
-  const { offers, walletState } = useWallet();
+  const {offers, walletState} = useWallet();
 
   const connectNotificationId = useRef('');
   const lastConnectNotification = useRef<undefined | WalletNotification>();

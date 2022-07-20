@@ -1,7 +1,4 @@
-export function getUpdatedOffer(
-  previousOffers: any[] | undefined,
-  updatedOffers: any[] | undefined
-) {
+export function getUpdatedOffer(previousOffers: any[] | undefined, updatedOffers: any[] | undefined) {
   /**
    * This function compared old and new offers arrays and returns updated offer
    * The change can be:

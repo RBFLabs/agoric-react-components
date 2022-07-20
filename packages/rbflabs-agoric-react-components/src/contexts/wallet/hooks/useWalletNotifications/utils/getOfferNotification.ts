@@ -1,4 +1,4 @@
-import { WalletNotification, WalletOfferStatus } from '../../../types';
+import {WalletNotification, WalletOfferStatus} from '../../../types';
 
 export function getOfferNotification(
   offerId: number,

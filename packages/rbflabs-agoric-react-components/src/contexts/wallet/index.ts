@@ -1,16 +1,13 @@
 /**
  * Provider
  */
-export { WalletProvider as AgoricWalletProvider } from './WalletProvider';
-export type { WalletProviderProps as AgoricWalletProviderProps } from './WalletProvider';
+export {WalletProvider as AgoricWalletProvider} from './WalletProvider';
+export type {WalletProviderProps as AgoricWalletProviderProps} from './WalletProvider';
 
 /**
  * Hooks
  */
-export {
-  useWallet as useAgoricWallet,
-  useWalletNotifications as useAgoricWalletNotifications,
-} from './hooks';
+export {useWallet as useAgoricWallet, useWalletNotifications as useAgoricWalletNotifications} from './hooks';
 
 /**
  * Types

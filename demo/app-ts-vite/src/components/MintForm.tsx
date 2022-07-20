@@ -1,18 +1,18 @@
 /* global harden */
-import React, { useState, useEffect, useMemo } from 'react';
-import { E } from '@agoric/eventual-send';
-import { useAgoricWallet } from '@rbflabs/agoric-react-components';
+import React, {useState, useEffect, useMemo} from 'react';
+import {E} from '@agoric/eventual-send';
+import {useAgoricWallet} from '@rbflabs/agoric-react-components';
 import appConstants from '../dAppConstants.mjs';
-import { makeNatAmountInput } from '@agoric/ui-components';
-import { TextField } from '@material-ui/core';
+import {makeNatAmountInput} from '@agoric/ui-components';
+import {TextField} from '@material-ui/core';
 
 const MintForm = () => {
   const [amount, setAmount] = useState(0n);
   const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
-  const { purses, zoe, board, walletBridge } = useAgoricWallet();
+  const {purses, zoe, board, walletBridge} = useAgoricWallet();
 
-  const NatAmountInput = useMemo(() => makeNatAmountInput({ React, TextField: TextField }), []);
+  const NatAmountInput = useMemo(() => makeNatAmountInput({React, TextField: TextField}), []);
 
   useEffect(() => {
     E(walletBridge).suggestIssuer('Moola', appConstants.TOKEN_ISSUER_BOARD_ID);
@@ -24,7 +24,7 @@ const MintForm = () => {
     if (purses) {
       const tokenPurse = purses.find(
         // Does the purse's brand match our token brand?
-        ({ brandBoardId }) => brandBoardId === appConstants.TOKEN_BRAND_BOARD_ID
+        ({brandBoardId}) => brandBoardId === appConstants.TOKEN_BRAND_BOARD_ID
       );
       if (tokenPurse && tokenPurse.pursePetname) {
         // If we got a petname for that purse, use it in the offers we create.

@@ -1,1 +1,1 @@
-export { NatInput } from './NatInput/NatInput';
+export {NatInput} from './NatInput/NatInput';
