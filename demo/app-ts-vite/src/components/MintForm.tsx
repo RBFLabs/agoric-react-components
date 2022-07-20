@@ -1,7 +1,7 @@
 /* global harden */
 import React, { useState, useEffect, useMemo } from 'react';
 import { E } from '@agoric/eventual-send';
-import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
+import { useAgoricWallet } from '@rbflabs/agoric-react-components';
 import appConstants from '../dAppConstants.mjs';
 import { makeNatAmountInput } from '@agoric/ui-components';
 import { TextField } from '@material-ui/core';
@@ -10,7 +10,7 @@ const MintForm = () => {
   const [amount, setAmount] = useState(0n);
   const [moolaPursePetname, setMoolaPursePetname] = useState(undefined);
 
-  const { purses, zoe, board, walletBridge } = useAgoricWalletContext();
+  const { purses, zoe, board, walletBridge } = useAgoricWallet();
 
   const NatAmountInput = useMemo(() => makeNatAmountInput({ React, TextField: TextField }), []);
 

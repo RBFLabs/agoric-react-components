@@ -1,7 +1,7 @@
-import { useAgoricWalletContext } from '@rbflabs/agoric-react-components';
+import { useAgoricWallet } from '@rbflabs/agoric-react-components';
 
 export const useOffers = (status: any) => {
-  const { offers } = useAgoricWalletContext();
+  const { offers } = useAgoricWallet();
 
   if (!offers) return undefined;
 
